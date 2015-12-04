@@ -1,0 +1,15 @@
+{
+  "generator-sassdoc-theme": {
+    "themeName": "sassdoc-theme-winter",
+    "themeEngine": "swig",
+    "author": {
+      "name": "Bios Sun"
+    },
+    "themeDesc": "A fancy new SassDoc theme.",
+    "version": "0.1.0",
+    "useExtras": true,
+    "useSass": true,
+    "useSassUtils": true,
+    "useTaskRunner": "gulp"
+  }
+}
