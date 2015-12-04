@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{% if package.lang %}{{ package.lang }}{% else %}en{% endif %}">
     <head>
         <meta charset="utf-8" />
         <title>{{ package.title }}{% if package.description %} - {{ package.description }}{% endif %}</title>
