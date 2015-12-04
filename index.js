@@ -81,7 +81,22 @@ module.exports = function (dest, ctx) {
      *
      * See <http://sassdoc.com/extra-tools/#markdown>.
      */
-    extras.markdown(ctx);
+    (function() {
+        var HasDescription = false,
+            description;
+
+        if (ctx.package && ctx.package.description) {
+            HasDescription = true;
+            description = ctx.package.description;
+        }
+
+        extras.markdown(ctx);
+
+        if (HasDescription) {
+            ctx.package.descriptionHTML = ctx.package.description;
+            ctx.package.description = description;
+        }
+    })();
 
     /**
      * Add a `display` property for each data item regarding of display
