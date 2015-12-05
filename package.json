@@ -28,6 +28,7 @@
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "imagemin-pngcrush": "^4.1.0",
+    "nojiko": "^0.5.8",
     "sassdoc": "^2.1.18"
   }
 }
