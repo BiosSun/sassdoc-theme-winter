@@ -26,132 +26,139 @@ var projectPath = '../';
 
 // Project path helper.
 var project = function () {
-  var args = Array.prototype.slice.call(arguments);
-  args.unshift(projectPath);
-  return path.resolve.apply(path, args);
+    var args = Array.prototype.slice.call(arguments);
+    args.unshift(projectPath);
+    return path.resolve.apply(path, args);
 };
 
 // Theme and project specific paths.
 var dirs = {
-  scss: 'scss',
-  css: 'assets/css',
-  img: 'assets/img',
-  svg: 'assets/svg',
-  js: 'assets/js',
-  tpl: 'views',
-  src: project('sass'),
-  docs: project('sassdoc')
+    scss: 'scss',
+    css: 'assets/css',
+    img: 'assets/img',
+    svg: 'assets/svg',
+    js: 'assets/js',
+    tpl: 'views',
+    src: project('nojiko'),
+    package: project('nojiko/package.json'),
+    docs: project('sassdoc')
 };
 
-
 gulp.task('styles', function () {
-  var browsers = ['last 2 version', '> 1%', 'ie 9'];
-  var processors = [
-    require('autoprefixer-core')({ browsers: browsers }),
-  ];
+    var browsers = ['last 2 version', '> 1%', 'ie 9'];
+    var processors = [
+        require('autoprefixer-core')({ browsers: browsers }),
+    ];
 
-  return gulp.src('./scss/**/*.scss')
-    .pipe(sass())
-    .pipe(postcss(processors))
-    .pipe(gulp.dest('assets/css'));
+    return gulp.src('./scss/**/*.scss')
+        .pipe(sass({
+            includePaths: ['./node_modules/'],
+            outputStyle: 'expanded',
+            precision: 11
+        }))
+        .pipe(postcss(processors))
+        .pipe(gulp.dest('assets/css'));
 });
 
 
 gulp.task('browser-sync', function () {
-  browserSync({
-    server: {
-      baseDir: dirs.docs
-    },
-    files: [
-      path.join(dirs.docs, '/*.html'),
-      path.join(dirs.docs, '/assets/css/**/*.css'),
-      path.join(dirs.docs, '/assets/js/**/*.js')
-    ]
-  });
+    browserSync({
+        server: {
+            baseDir: dirs.docs
+        },
+        files: [
+            path.join(dirs.docs, '/*.html'),
+            path.join(dirs.docs, '/assets/css/**/*.css'),
+            path.join(dirs.docs, '/assets/js/**/*.js')
+        ]
+    });
 });
 
 
 // SassDoc compilation.
 // See: http://sassdoc.com/customising-the-view/
 gulp.task('compile', function () {
-  var config = {
-    verbose: true,
-    dest: dirs.docs,
-    theme: './',
-    // Disable cache to enable live-reloading.
-    // Usefull for some template engines (e.g. Swig).
-    cache: false,
-  };
+    var config = {
+        verbose: true,
+        dest: dirs.docs,
+        theme: './',
+        // Disable cache to enable live-reloading.
+        // Usefull for some template engines (e.g. Swig).
+        cache: false,
+        package: dirs.package
+    };
 
-  var sdStream = sassdoc(config);
+    var sdStream = sassdoc(config);
 
-  gulp.src(path.join(dirs.src, '**/*.scss'))
-    .pipe(sdStream);
+    gulp.src(path.join(dirs.src, '**/*.scss'))
+        .pipe(sdStream);
 
-  // Await for the full documentation process.
-  return sdStream.promise;
+    // Await for the full documentation process.
+    return sdStream.promise;
 });
 
 
 // Dump JS files from theme into `docs/assets` whenever they get modified.
 // Prevent requiring a full `compile`.
 gulp.task('dumpJS', function () {
-  var src = dirs.js;
-  var dest = path.join(dirs.docs, 'assets/js');
+    var src = dirs.js;
+    var dest = path.join(dirs.docs, 'assets/js');
 
-  return copy(src, dest).then(function () {
-    gutil.log(src + ' copied to ' + path.relative(__dirname, dest));
-  });
+    return copy(src, dest).then(function () {
+        gutil.log(src + ' copied to ' + path.relative(__dirname, dest));
+    });
 });
 
 
 // Dump CSS files from theme into `docs/assets` whenever they get modified.
 // Prevent requiring a full `compile`.
 gulp.task('dumpCSS', ['styles'], function () {
-  var src = dirs.css;
-  var dest = path.join(dirs.docs, 'assets/css');
+    var src = dirs.css;
+    var dest = path.join(dirs.docs, 'assets/css');
 
-  return copy(src, dest).then(function () {
-    gutil.log(src + ' copied to ' + path.relative(__dirname, dest));
-  });
+    return copy(src, dest).then(function () {
+        gutil.log(src + ' copied to ' + path.relative(__dirname, dest));
+    });
 });
 
 
 // Development task.
 // While working on a theme.
 gulp.task('develop', ['compile', 'styles', 'browser-sync'], function () {
-  gulp.watch('scss/**/*.scss', ['styles', 'dumpCSS']);
-  gulp.watch('assets/js/**/*.js', ['dumpJS']);
-  gulp.watch('views/**/*.swig', ['compile']);
+    gulp.watch('scss/**/*.scss', ['styles', 'dumpCSS']);
+    gulp.watch('assets/js/**/*.js', ['dumpJS']);
+    gulp.watch('views/**/*.swig', ['compile']);
 });
 
 
 gulp.task('svgmin', function () {
-  return gulp.src('assets/svg/*.svg')
-    .pipe(cache(
-      imagemin({
-        svgoPlugins: [{ removeViewBox: false }]
-      })
-    ))
-    .pipe(gulp.dest('assets/svg'));
+    return gulp.src('assets/svg/*.svg')
+        .pipe(cache(
+            imagemin({
+                svgoPlugins: [{ removeViewBox: false }]
+            })
+        ))
+        .pipe(gulp.dest('assets/svg'));
 });
 
 
 gulp.task('imagemin', function () {
-  return gulp.src('assets/img/{,*/}*.{gif,jpeg,jpg,png}')
-    .pipe(cache(
-      imagemin({
-        progressive: true,
-        use: [pngcrush()]
-      })
-    ))
-    .pipe(gulp.dest('assets/img'));
+    return gulp.src('assets/img/{,*/}*.{gif,jpeg,jpg,png}')
+        .pipe(cache(
+            imagemin({
+                progressive: true,
+                use: [pngcrush()]
+            })
+        ))
+        .pipe(gulp.dest('assets/img'));
 });
 
 
 // Pre release/deploy optimisation tasks.
 gulp.task('dist', [
-  'jsmin',
-  'svgmin',
-  'imagemin',
+    'jsmin',
+    'svgmin',
+    'imagemin',
 ]);
+
+gulp.task('default', ['compile', 'styles']);
