@@ -7,6 +7,8 @@
   ],
   "dependencies": {
     "extend": "^1.0.0",
+    "nojiko": "^0.5.8",
+    "rio-typesetting": "^0.2.4",
     "sassdoc-extras": "^2.0.0",
     "swig": "^1.4.2",
     "themeleon": "^3.0.0"
@@ -28,7 +30,6 @@
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "imagemin-pngcrush": "^4.1.0",
-    "nojiko": "^0.5.8",
     "sassdoc": "^2.1.18"
   }
 }
