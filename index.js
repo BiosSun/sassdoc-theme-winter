@@ -21,6 +21,13 @@ var extend = require('extend');
 var extras = require('sassdoc-extras');
 
 /**
+ * custom swig filter
+ */
+var swig = require('swig');
+swig.setFilter('in', (key, object) => key in object);
+swig.setFilter('nin', (key, object) => !(key in object));
+
+/**
  * The theme function. You can directly export it like this:
  *
  *     module.exports = themeleon(__dirname, function (t) {});
@@ -117,6 +124,39 @@ module.exports = function (dest, ctx) {
     extras.display(ctx);
 
     /**
+     * split type
+     */
+    ctx.data.forEach(function(item) {
+        function split(type) {
+            return ( type || '' ).trim().split('|').map(function(x) { return x.trim(); });
+        }
+
+        if (item.type) {
+            item.type = split(item.type);
+        }
+
+        if (item.parameter) {
+            item.parameter.forEach(function(p) {
+                if (p.type) {
+                    p.type = split(p.type);
+                }
+            });
+        }
+
+        if (item.property) {
+            item.property.forEach(function(p) {
+                if (p.type) {
+                    p.type = split(p.type);
+                }
+            });
+        }
+
+        if (item.return && item.return.type) {
+            item.return.type = split(item.return.type);
+        }
+    });
+
+    /**
      * Allow the user to give a name to the documentation groups.
      *
      * We can then have `@group slug` in the docblock, and map `slug`
@@ -149,6 +189,12 @@ module.exports = function (dest, ctx) {
      * templates to manipulate the indexed object.
      */
     ctx.data.byGroupAndType = extras.byGroupAndType(ctx.data);
+
+    ctx.now = {
+        year: new Date().getFullYear()
+    };
+
+    console.info(ctx);
 
     /**
      * Now we have prepared the data, we can proxy to the Themeleon

@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+// 该主题不支持 IE6 及 IE7 等古老浏览器
+$support-for-ie6:     false;
+$support-for-ie7:     false;
+
+// 其它资源文件所在的目录路径
+$images-path:         '../img';
+$fonts-path:          '../font';
+$svgs-path:           '../svg';
+
+// 文字
+$font-family: arial, sans-serif;
+
+$font-size-base: 13px;
+$font-size-large: 15px;
+$font-size-small: 11px;
+
+// 颜色
+$primary-color: #211F22;
+$background-color: #fff;
+$line-color: #414045;
+
+$text-color: #444;
+$text-color-quiet: #aaa;
+$text-color-loud: #111;
+
+$default-box-sizing:  border-box;
+
+@import "nojiko/sass/variables";
+
+
+// custom variables
+// -----------------------------------------------------------------------------
+
+// 文档内容的最大显示宽度
+$content-max-width: 700px;
