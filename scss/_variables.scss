@@ -12,14 +12,15 @@ $svgs-path:           '../svg';
 // 文字
 $font-family: arial, sans-serif;
 
-$font-size-base: 13px;
-$font-size-large: 15px;
-$font-size-small: 11px;
+$font-size-base: 14px;
+$font-size-large: 18px;
+$font-size-small: 12px;
 
 // 颜色
 $primary-color: #211F22;
 $background-color: #fff;
-$line-color: #414045;
+// $line-color: #414045;
+$line-color: #f0f0f0;
 
 $text-color: #444;
 $text-color-quiet: #aaa;
@@ -35,3 +36,9 @@ $default-box-sizing:  border-box;
 
 // 文档内容的最大显示宽度
 $content-max-width: 700px;
+
+// 用于标识类型的 label 组件的颜色
+$lable-color-type: #c1a95f;
+
+// 用于标识默认值的 label 组件的颜色
+$lable-color-default: #4797c3;;

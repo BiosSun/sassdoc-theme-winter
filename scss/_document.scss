@@ -1,0 +1,215 @@
+@charset "utf-8";
+
+.content-wrapper {
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $distance-horizontal;
+    padding-right: $distance-horizontal;
+}
+
+.document {
+    margin-left: 270px;
+
+    %clear-code-style {
+        font-size: inherit;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        vertical-align: baseline;
+    }
+
+    %item-label {
+        @extend %label;
+
+        border: 1px solid $text-color;
+        vertical-align: middle;
+        @include position(relative, -1px null null);
+    }
+
+    %item-name-label {
+        @extend %item-label;
+
+        font-size: .5em;
+        font-weight: 300;
+    }
+
+    .tagline {
+        color: $text-color-quiet;
+        margin-bottom: 30px;
+    }
+
+    .group-header {
+        background: #f7f7f7;
+        padding: $distance-vertical 0;
+    }
+
+    .group-name {
+        margin: 0;
+    }
+
+    .type-header {
+        border-bottom: 1px dashed #e0e0e0;
+        padding: $distance-vertical 0;
+        margin: $distance-vertical 0;
+    }
+
+    .type-name {
+        margin: 0;
+    }
+
+    // item
+    // ---------------------------
+
+    .item {
+        padding: ($distance-vertical * .5) 0;
+
+        .sub-heading {
+            padding-bottom: 0.6em;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+    }
+
+    .item-name {
+        display: block;
+        font-size: 2em;
+
+        code {
+            @extend %clear-code-style;
+        }
+    }
+
+    .item-access {
+        @extend %item-name-label;
+
+        color: $text-color-quiet;
+        border-color: $text-color-quiet;
+
+        text-transform: capitalize;
+    }
+
+    .item-aliased {
+        font-size: $font-size-small;
+    }
+
+    .item-types {
+        white-space: nowrap;
+    }
+
+    .item-type {
+        @extend %item-name-label;
+
+        color: $lable-color-type;
+        border-color: $lable-color-type;
+
+        margin-left: $distance-horizontal / 2;
+    }
+
+    .item.deprecated {
+        opacity: .6;
+
+        .item-name-text {
+            text-decoration: line-through;
+        }
+    }
+
+    .item-deprecated {
+        color: #BD2525;
+    }
+
+    .item-parameter-name {
+        margin-right: .4em;
+
+        code {
+            @extend %clear-code-style;
+            font-weight: 700;
+        }
+    }
+
+    .item-parameter-type {
+        @extend %item-label;
+
+        color: $lable-color-type;
+        border-color: $lable-color-type;
+    }
+
+    .item-parameter-default {
+        @extend %item-label;
+
+        color: $lable-color-default;
+        border-color: $lable-color-default;
+
+        code {
+            @extend %clear-code-style;
+        }
+    }
+
+    .item-requires {
+        .require-type {
+            @extend %clear-code-style;
+
+            display: inline-block;
+            width: 1em;
+
+            text-align: center;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        .require-name {
+            code {
+                @extend %clear-code-style;
+            }
+        }
+    }
+
+    .item-example-paratactic {
+        $left-width: 45%;
+
+        display: flex;
+        margin: 1em 0;   // TODO: 这里应该使用 rio 中配置的块级元素上下外边距变量
+
+        border-radius: 6px;
+
+        background: $rio-code-bg;
+
+        overflow: hidden;
+
+        .item-example {
+            width: 50%;
+            position: relative;
+            display: flex;
+        }
+
+        .item-example-left {
+            border-right: 1px dashed #ccc;
+        }
+
+        .example-description {
+            @include position(absolute, 0 0 null null, 1);
+            padding: 6px 10px;
+
+            background: transparentize($rio-code-bg, .5);
+            border-left: 1px dashed #ccc;
+            border-bottom: 1px dashed #ccc;
+            border-radius: 0 0 0 6px;
+
+            font-size: $font-size-small;
+
+            > * {
+                display: inline;
+            }
+        }
+
+        .example-code {
+            display: flex;
+            margin: 0;
+
+            > code {
+                background: transparent;
+                overflow: visible;
+            }
+        }
+    }
+
+}

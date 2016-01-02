@@ -1,9 +1,15 @@
 @charset "utf-8";
 
 @import "nojiko/sass/nojiko";
-
 @import "./variables";
-@import "./base";
+
+@import "./label";
+@import "./mini-type-label";
 
 @import "rio";
+
+@import "./base";
+@import "./document";
+@import "./sidebar";
+
 @import "./elements";

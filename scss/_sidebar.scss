@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+.sidebar {
+    @include position(fixed, 0 null 0 0, 10);
+    width: 270px;
+
+    background: #fff;
+    border-right: 1px solid $line-color;
+
+    overflow: auto;
+}
+
+.sidebar-nav-list {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-nav-list .item-content {
+    display: block;
+    padding: ($distance-vertical * .7) $distance-horizontal;
+    margin: -1px 0;
+
+    border-top: 1px solid $line-color;
+    border-bottom: 1px solid $line-color;
+
+    @include text-overflow-ellipsis;
+
+    &:hover {
+         text-decoration: none;
+    }
+}
+
+.sidebar-nav-list .item-type {
+    @extend %mini-type-label;
+    @extend %mini-type-label-color;
+}
+
+.sidebar-nav-group-list > .item > .item-content {
+    font-weight: 600;
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+}

@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+
+$mini-type-label-color-transparentize: .1;
+
+%mini-type-label {
+    @extend %label;
+
+    display: inline-block;
+    margin-right: 3px;
+    padding: 0;
+
+    $size: floor( compute-line-height($font-size-base, $line-height-base) );
+    @include size($size);
+
+    line-height: $size;
+    text-transform: uppercase;
+
+    background: transparentize($text-color-quiet, $mini-type-label-color-transparentize);
+}
+
+%mini-type-label-color {
+    &[data-type=mixin] {
+        background: transparentize(#4A8E5D, $mini-type-label-color-transparentize);
+    }
+
+    &[data-type=function] {
+        background: transparentize(#387EBF, $mini-type-label-color-transparentize);
+    }
+
+    &[data-type=variable] {
+        background: transparentize(#CE9231, $mini-type-label-color-transparentize);
+    }
+
+    &[data-type=placeholder] {
+        background: transparentize(#CC4794, $mini-type-label-color-transparentize);
+    }
+}

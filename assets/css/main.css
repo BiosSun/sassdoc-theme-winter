@@ -27,6 +27,286 @@
  * 使用 SVG 背景图片来模拟实现左边及右边超细边框
  * @param $color {Color} 边框颜色
  */
+.sidebar-nav-list .item-type, .document .item-access, .document .item-type, .document .item-parameter-type, .document .item-parameter-default {
+  display: inline;
+  padding: .2em 1em .2em;
+  font-size: 75%;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 100px;
+}
+
+.sidebar-nav-list .item-type {
+  display: inline-block;
+  margin-right: 3px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  background: rgba(170, 170, 170, 0.9);
+}
+
+.sidebar-nav-list [data-type=mixin].item-type {
+  background: rgba(74, 142, 93, 0.9);
+}
+
+.sidebar-nav-list [data-type=function].item-type {
+  background: rgba(56, 126, 191, 0.9);
+}
+
+.sidebar-nav-list [data-type=variable].item-type {
+  background: rgba(206, 146, 49, 0.9);
+}
+
+.sidebar-nav-list [data-type=placeholder].item-type {
+  background: rgba(204, 71, 148, 0.9);
+}
+
+/*! Rio - v0.2.3 - Bios Sun <biossun@gmail.com> - https://github.com/BiosSun/rio
+    ========================================================================== */
+.document small, .document tfoot {
+  font-size: 90%;
+  color: #999;
+}
+
+.document h1, .document h2, .document h3, .document h4, .document h5, .document h6,
+.document p, .document pre, .document ul, .document ol, .document dl, .document table, .document form, .document hr,
+.document .document-block {
+  margin: 1.27em 0;
+}
+
+.document {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.document > *:first-child {
+  margin-top: 0;
+}
+
+.document > *:last-child {
+  margin-bottom: 0;
+}
+
+.document address, .document caption, .document cite, .document code, .document em, .document th, .document dfn, .document var {
+  font-weight: 400;
+}
+
+.document code, .document pre, .document var {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.document a {
+  text-decoration: none;
+}
+
+.document a:hover, .document a:focus {
+  border-bottom: 1px solid;
+  text-decoration: none;
+}
+
+.document a:focus {
+  outline: 1px dotted #999;
+}
+
+.document a:visited {
+  color: #211F22;
+}
+
+.document a:hover {
+  color: black;
+}
+
+.document a:focus {
+  color: black;
+}
+
+.document a:active {
+  color: black;
+}
+
+.document b, .document strong {
+  font-weight: 700;
+}
+
+.document i, .document em {
+  font-style: italic;
+  margin-right: 0.2em;
+}
+
+.document sup, .document sub {
+  font-size: .75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  vertical-align: text-top\9;
+  margin-right: 0.2em;
+}
+
+.document sup {
+  top: -0.5em;
+}
+
+.document sub {
+  bottom: -0.25em;
+}
+
+.document mark {
+  background: #fffda0;
+  padding: 1px 0;
+}
+
+.document abbr {
+  cursor: help;
+  border-bottom: 1px dotted;
+}
+
+.document q {
+  color: #999;
+}
+
+.document code {
+  font-size: 0.9em;
+  background: #f7f7f7;
+  padding: 0.3em 0.5em;
+  border-radius: 0.3em;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.document img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.document h1, .document h2, .document h3, .document h4, .document h5, .document h6 {
+  font-weight: 500;
+  line-height: 1.5em;
+  margin-top: 1.2em;
+  margin-bottom: 0.8em;
+}
+
+.document h1 a, .document h2 a, .document h3 a, .document h4 a, .document h5 a, .document h6 a {
+  color: inherit;
+  border-bottom: 1px dotted;
+}
+
+.document h1 a:hover, .document h1 a:focus, .document h2 a:hover, .document h2 a:focus, .document h3 a:hover, .document h3 a:focus, .document h4 a:hover, .document h4 a:focus, .document h5 a:hover, .document h5 a:focus, .document h6 a:hover, .document h6 a:focus {
+  text-decoration: none;
+  color: #211F22;
+}
+
+.document h1 small, .document h2 small, .document h3 small, .document h4 small, .document h5 small, .document h6 small {
+  font-size: 70%;
+}
+
+.document h1 {
+  font-size: 2.2em;
+}
+
+.document h2 {
+  font-size: 1.8em;
+}
+
+.document h3 {
+  font-size: 1.4em;
+}
+
+.document h4 {
+  font-size: 1.2em;
+}
+
+.document h5 {
+  font-size: 1em;
+}
+
+.document h6 {
+  font-size: 0.9em;
+}
+
+.document ul, .document ol, .document dd {
+  margin-left: 2em;
+  padding-left: 0;
+}
+
+.document ol {
+  list-style: decimal;
+}
+
+.document ul {
+  list-style: disc;
+}
+
+.document li, .document dd {
+  padding: 0.17em 0;
+}
+
+.document li ul, .document li ol {
+  padding: 0.17em 0 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.document li ul {
+  list-style: circle;
+}
+
+.document table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-align: left;
+  border-top: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.document thead tr, .document tr:hover {
+  background: #f0f0f0;
+}
+
+.document th, .document td {
+  padding: 0.7em 1.4em 0.7em 0;
+  border-bottom: 1px solid #f0f0f0;
+  _padding: 0.7em 1.4em;
+}
+
+.document th:first-child, .document td:first-child {
+  padding-left: 1.4em;
+}
+
+.document th {
+  font-weight: 700;
+}
+
+.document pre code {
+  display: block;
+  padding: 1em 1.2em;
+  background: #fafafa;
+  color: #333;
+  white-space: pre;
+  overflow: auto;
+  line-height: 1.48;
+}
+
+.document blockquote {
+  border-left: 0.4em solid #f0f0f0;
+  background: #fafafa;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1em 1.2em;
+  color: #999;
+}
+
+.document hr {
+  height: 0;
+  border: 0 none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -431,7 +711,7 @@ th {
 }
 
 body {
-  font: 13px/1.428571429 arial, sans-serif;
+  font: 14px/1.428571429 arial, sans-serif;
   color: #444;
   background: #fff;
 }
@@ -451,10 +731,10 @@ img {
 }
 
 hr {
-  margin-top: 18.571428577px;
-  margin-bottom: 18.571428577px;
+  margin-top: 20.000000006px;
+  margin-bottom: 20.000000006px;
   border: 0;
-  border-top: 1px solid #414045;
+  border-top: 1px solid #f0f0f0;
 }
 
 ::-webkit-input-placeholder {
@@ -473,250 +753,229 @@ hr {
   color: #aaaaaa;
 }
 
-/*! Rio - v0.2.3 - Bios Sun <biossun@gmail.com> - https://github.com/BiosSun/rio
-    ========================================================================== */
-.document small, .document tfoot {
-  font-size: 90%;
-  color: #999;
-}
-
-.document h1, .document h2, .document h3, .document h4, .document h5, .document h6,
-.document p, .document pre, .document ul, .document ol, .document dl, .document table, .document form, .document hr,
-.document .document-block {
-  margin: 1.27em 0;
+.content-wrapper {
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .document {
-  font-size: 13px;
-  line-height: 1.75;
+  margin-left: 270px;
 }
 
-.document > *:first-child {
-  margin-top: 0;
-}
-
-.document > *:last-child {
-  margin-bottom: 0;
-}
-
-.document address, .document caption, .document cite, .document code, .document em, .document th, .document dfn, .document var {
-  font-weight: 400;
-}
-
-.document code, .document pre, .document var {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-.document a {
-  text-decoration: none;
-}
-
-.document a:hover, .document a:focus {
-  border-bottom: 1px solid;
-  text-decoration: none;
-}
-
-.document a:focus {
-  outline: 1px dotted #999;
-}
-
-.document a:visited {
-  color: #211F22;
-}
-
-.document a:hover {
-  color: black;
-}
-
-.document a:focus {
-  color: black;
-}
-
-.document a:active {
-  color: black;
-}
-
-.document b, .document strong {
-  font-weight: 700;
-}
-
-.document i, .document em {
-  font-style: italic;
-  margin-right: 0.2em;
-}
-
-.document sup, .document sub {
-  font-size: .75em;
-  line-height: 0;
-  position: relative;
+.document .item-name code, .document .item-parameter-name code, .document .item-parameter-default code, .document .item-requires .require-type, .document .item-requires .require-name code {
+  font-size: inherit;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
   vertical-align: baseline;
-  vertical-align: text-top\9;
-  margin-right: 0.2em;
 }
 
-.document sup {
-  top: -0.5em;
-}
-
-.document sub {
-  bottom: -0.25em;
-}
-
-.document mark {
-  background: #fffda0;
-  padding: 1px 0;
-}
-
-.document abbr {
-  cursor: help;
-  border-bottom: 1px dotted;
-}
-
-.document q {
-  color: #999;
-}
-
-.document code {
-  font-size: 0.9em;
-  background: #f7f7f7;
-  padding: 0.3em 0.5em;
-  border-radius: 0.3em;
+.document .item-access, .document .item-type, .document .item-parameter-type, .document .item-parameter-default {
+  border: 1px solid #444;
   vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.document .item-access, .document .item-type {
+  font-size: .5em;
+  font-weight: 300;
+}
+
+.document .tagline {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.document .group-header {
+  background: #f7f7f7;
+  padding: 20px 0;
+}
+
+.document .group-name {
+  margin: 0;
+}
+
+.document .type-header {
+  border-bottom: 1px dashed #e0e0e0;
+  padding: 20px 0;
+  margin: 20px 0;
+}
+
+.document .type-name {
+  margin: 0;
+}
+
+.document .item {
+  padding: 10px 0;
+}
+
+.document .item .sub-heading {
+  padding-bottom: 0.6em;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.document .item-name {
+  display: block;
+  font-size: 2em;
+}
+
+.document .item-access {
+  color: #aaa;
+  border-color: #aaa;
+  text-transform: capitalize;
+}
+
+.document .item-aliased {
+  font-size: 12px;
+}
+
+.document .item-types {
   white-space: nowrap;
 }
 
-.document img {
-  max-width: 100%;
-  vertical-align: middle;
+.document .item-type {
+  color: #c1a95f;
+  border-color: #c1a95f;
+  margin-left: 10px;
 }
 
-.document h1, .document h2, .document h3, .document h4, .document h5, .document h6 {
-  font-weight: 500;
-  line-height: 1.5em;
-  margin-top: 1.2em;
-  margin-bottom: 0.8em;
+.document .item.deprecated {
+  opacity: .6;
 }
 
-.document h1 a, .document h2 a, .document h3 a, .document h4 a, .document h5 a, .document h6 a {
-  color: inherit;
-  border-bottom: 1px dotted;
+.document .item.deprecated .item-name-text {
+  text-decoration: line-through;
 }
 
-.document h1 a:hover, .document h1 a:focus, .document h2 a:hover, .document h2 a:focus, .document h3 a:hover, .document h3 a:focus, .document h4 a:hover, .document h4 a:focus, .document h5 a:hover, .document h5 a:focus, .document h6 a:hover, .document h6 a:focus {
-  text-decoration: none;
-  color: #211F22;
+.document .item-deprecated {
+  color: #BD2525;
 }
 
-.document h1 small, .document h2 small, .document h3 small, .document h4 small, .document h5 small, .document h6 small {
-  font-size: 70%;
+.document .item-parameter-name {
+  margin-right: .4em;
 }
 
-.document h1 {
-  font-size: 2.2em;
-}
-
-.document h2 {
-  font-size: 1.8em;
-}
-
-.document h3 {
-  font-size: 1.4em;
-}
-
-.document h4 {
-  font-size: 1.2em;
-}
-
-.document h5 {
-  font-size: 1em;
-}
-
-.document h6 {
-  font-size: 0.9em;
-}
-
-.document ul, .document ol, .document dd {
-  margin-left: 2em;
-  padding-left: 0;
-}
-
-.document ol {
-  list-style: decimal;
-}
-
-.document ul {
-  list-style: disc;
-}
-
-.document li, .document dd {
-  padding: 0.17em 0;
-}
-
-.document li ul, .document li ol {
-  padding: 0.17em 0 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.document li ul {
-  list-style: circle;
-}
-
-.document table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  text-align: left;
-  border-top: 1px solid #f0f0f0;
-  background: #fafafa;
-}
-
-.document thead tr, .document tr:hover {
-  background: #f0f0f0;
-}
-
-.document th, .document td {
-  padding: 0.7em 1.4em 0.7em 0;
-  border-bottom: 1px solid #f0f0f0;
-  _padding: 0.7em 1.4em;
-}
-
-.document th:first-child, .document td:first-child {
-  padding-left: 1.4em;
-}
-
-.document th {
+.document .item-parameter-name code {
   font-weight: 700;
 }
 
-.document pre code {
-  display: block;
-  padding: 1em 1.2em;
-  background: #fafafa;
-  color: #333;
-  white-space: pre;
+.document .item-parameter-type {
+  color: #c1a95f;
+  border-color: #c1a95f;
+}
+
+.document .item-parameter-default {
+  color: #4797c3;
+  border-color: #4797c3;
+}
+
+.document .item-requires .require-type {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.document .item-example-paratactic {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1em 0;
+  border-radius: 6px;
+  background: #f7f7f7;
+  overflow: hidden;
+}
+
+.document .item-example-paratactic .item-example {
+  width: 50%;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.document .item-example-paratactic .item-example-left {
+  border-right: 1px dashed #ccc;
+}
+
+.document .item-example-paratactic .example-description {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 6px 10px;
+  background: rgba(247, 247, 247, 0.5);
+  border-left: 1px dashed #ccc;
+  border-bottom: 1px dashed #ccc;
+  border-radius: 0 0 0 6px;
+  font-size: 12px;
+}
+
+.document .item-example-paratactic .example-description > * {
+  display: inline;
+}
+
+.document .item-example-paratactic .example-code {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+}
+
+.document .item-example-paratactic .example-code > code {
+  background: transparent;
+  overflow: visible;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 270px;
+  background: #fff;
+  border-right: 1px solid #f0f0f0;
   overflow: auto;
-  line-height: 1.48;
 }
 
-.document blockquote {
-  border-left: 0.4em solid #f0f0f0;
-  background: #fafafa;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 1em 1.2em;
-  color: #999;
+.sidebar-nav-list {
+  margin: 0;
+  padding: 0;
 }
 
-.document hr {
-  height: 0;
-  border: 0 none;
+.sidebar-nav-list .item-content {
+  display: block;
+  padding: 14px 20px;
+  margin: -1px 0;
+  border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar-nav-list .item-content:hover {
+  text-decoration: none;
+}
+
+.sidebar-nav-group-list > .item > .item-content {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.34;
 }
 
 .sm {
   padding: 6px 12px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.428571429;
   border-width: 1px;
   border-radius: 3px;
@@ -724,7 +983,7 @@ hr {
 
 .sm-b {
   padding: 7px 13px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.428571429;
   border-width: 0;
   border-radius: 3px;
@@ -732,7 +991,7 @@ hr {
 
 .sm-bh {
   padding: 7px 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.428571429;
   border-width: 0;
   border-radius: 3px;
@@ -740,7 +999,7 @@ hr {
 
 .sl {
   padding: 10px 16px;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.34;
   border-width: 1px;
   border-radius: 3px;
@@ -748,7 +1007,7 @@ hr {
 
 .sl-b {
   padding: 11px 17px;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.34;
   border-width: 0;
   border-radius: 3px;
@@ -756,7 +1015,7 @@ hr {
 
 .sl-bh {
   padding: 11px 0;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.34;
   border-width: 0;
   border-radius: 3px;
@@ -764,7 +1023,7 @@ hr {
 
 .sxl {
   padding: 13px 22px;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.34;
   border-width: 1px;
   border-radius: 3px;
@@ -772,7 +1031,7 @@ hr {
 
 .sxl-b {
   padding: 14px 23px;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.34;
   border-width: 0;
   border-radius: 3px;
@@ -780,7 +1039,7 @@ hr {
 
 .sxl-bh {
   padding: 14px 0;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.34;
   border-width: 0;
   border-radius: 3px;
@@ -788,7 +1047,7 @@ hr {
 
 .ss {
   padding: 4px 9px;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
   border-width: 1px;
   border-radius: 3px;
@@ -796,7 +1055,7 @@ hr {
 
 .ss-b {
   padding: 5px 10px;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
   border-width: 0;
   border-radius: 3px;
@@ -804,7 +1063,7 @@ hr {
 
 .ss-bh {
   padding: 5px 0;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
   border-width: 0;
   border-radius: 3px;
@@ -812,7 +1071,7 @@ hr {
 
 .sxs {
   padding: 2px 6px;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
   border-width: 1px;
   border-radius: 3px;
@@ -820,7 +1079,7 @@ hr {
 
 .sxs-b {
   padding: 3px 7px;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
   border-width: 0;
   border-radius: 3px;
@@ -828,7 +1087,7 @@ hr {
 
 .sxs-bh {
   padding: 3px 0;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
   border-width: 0;
   border-radius: 3px;
@@ -1282,11 +1541,11 @@ hr {
 }
 
 .tp {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .tm {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .to {
