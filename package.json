@@ -7,6 +7,7 @@
   ],
   "dependencies": {
     "extend": "^1.0.0",
+    "highlight.js": "^9.0.0",
     "nojiko": "^0.5.8",
     "rio-typesetting": "^0.2.4",
     "sassdoc-extras": "^2.0.0",

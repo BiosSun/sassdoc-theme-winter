@@ -27,6 +27,8 @@ var swig = require('swig');
 swig.setFilter('in', (key, object) => key in object);
 swig.setFilter('nin', (key, object) => !(key in object));
 
+var highlight = require('highlight.js');
+
 /**
  * The theme function. You can directly export it like this:
  *
@@ -123,10 +125,9 @@ module.exports = function (dest, ctx) {
      */
     extras.display(ctx);
 
-    /**
-     * split type
-     */
     ctx.data.forEach(function(item) {
+        // split type
+
         function split(type) {
             return ( type || '' ).trim().split('|').map(function(x) { return x.trim(); });
         }
@@ -153,6 +154,20 @@ module.exports = function (dest, ctx) {
 
         if (item.return && item.return.type) {
             item.return.type = split(item.return.type);
+        }
+
+        // highlight code
+        if (item.example) {
+            item.example.forEach(function(example) {
+                if (example.type === 'css') {
+                    console.info('0: ', example.code);
+                }
+
+                example.code = highlight.highlightAuto(example.code, [example.type]).value;
+                if (example.type === 'css') {
+                    console.info('1: ', example.code);
+                }
+            });
         }
     });
 
