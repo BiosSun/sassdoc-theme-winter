@@ -76,7 +76,8 @@
 .document h1, .document h2, .document h3, .document h4, .document h5, .document h6,
 .document p, .document pre, .document ul, .document ol, .document dl, .document table, .document form, .document hr,
 .document .document-block {
-  margin: 1.27em 0;
+  margin-top: 1.27em;
+  margin-bottom: 1.27em;
 }
 
 .document {
@@ -170,7 +171,7 @@
 }
 
 .document code {
-  font-size: 0.9em;
+  font-size: 0.8em;
   background: #f7f7f7;
   padding: 0.3em 0.5em;
   border-radius: 0.3em;
@@ -910,12 +911,9 @@ hr {
   top: 0;
   right: 0;
   z-index: 1;
-  padding: 6px 10px;
-  background: rgba(247, 247, 247, 0.5);
-  border-left: 1px dashed #ccc;
-  border-bottom: 1px dashed #ccc;
-  border-radius: 0 0 0 6px;
+  padding: 1px .7em;
   font-size: 12px;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .document .item-example-paratactic .example-description > * {

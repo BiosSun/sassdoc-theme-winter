@@ -187,14 +187,10 @@
 
         .example-description {
             @include position(absolute, 0 0 null null, 1);
-            padding: 6px 10px;
+            padding: 1px .7em;
 
-            background: transparentize($rio-code-bg, .5);
-            border-left: 1px dashed #ccc;
-            border-bottom: 1px dashed #ccc;
-            border-radius: 0 0 0 6px;
-
-            font-size: $font-size-small;
+            font-size: 12px;
+            color: rgba(0, 0, 0, .2);
 
             > * {
                 display: inline;

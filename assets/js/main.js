@@ -52,4 +52,17 @@ $(function() {
             $('<div class="item-example-paratactic"></div>').insertBefore(el).append(el, nextEl);
         }
     });
+
+    /**
+     * 在鼠标移入代码块时，慢慢地隐藏代码描述，让读者专心浏览代码
+     */
+    $('.item-example-paratactic')
+        .on('mouseenter', function() {
+            var description = $(this).find('.example-description');
+            description.stop().fadeOut(3500);
+        })
+        .on('mouseleave', function() {
+            var description = $(this).find('.example-description');
+            description.stop().fadeIn(500);
+        });
 });
