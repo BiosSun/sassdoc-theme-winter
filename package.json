@@ -1,7 +1,7 @@
 {
   "name": "sassdoc-theme-winter",
   "description": "A fancy new SassDoc theme.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "sassdoc-theme"
   ],
@@ -17,6 +17,7 @@
   "engines": {
     "node": ">=0.10.0"
   },
+  "main": "index.js",
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
     "bluebird": "^3.0.6",
