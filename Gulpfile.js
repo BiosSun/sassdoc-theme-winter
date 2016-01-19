@@ -51,7 +51,10 @@ gulp.task('styles', function () {
     ];
 
     return gulp.src('./scss/**/*.scss')
-        .pipe(sass({
+        .on("error", function (err) {
+            console.error("Error", err.message);
+        })
+       .pipe(sass({
             includePaths: ['./node_modules/'],
             outputStyle: 'expanded',
             precision: 11
@@ -79,7 +82,15 @@ gulp.task('browser-sync', function () {
 // See: http://sassdoc.com/customising-the-view/
 gulp.task('compile', function () {
     var config = {
-        verbose: true,
+        display: {
+            access: [
+                'public',
+                'private'
+            ],
+            alias: true,
+            watermark: true
+        },
+       verbose: true,
         dest: dirs.docs,
         theme: './',
         // Disable cache to enable live-reloading.
@@ -127,6 +138,8 @@ gulp.task('dumpCSS', ['styles'], function () {
 gulp.task('develop', ['compile', 'styles', 'browser-sync'], function () {
     gulp.watch('scss/**/*.scss', ['styles', 'dumpCSS']);
     gulp.watch('assets/js/**/*.js', ['dumpJS']);
+    gulp.watch(dirs.src, ['compile']);
+    gulp.watch(dirs.package, ['compile']);
     gulp.watch('views/**/*.swig', ['compile']);
 });
 

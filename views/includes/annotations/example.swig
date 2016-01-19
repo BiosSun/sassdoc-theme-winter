@@ -1,7 +1,7 @@
 {# item example #}
 {% if item.example.length > 0 %}
     <div class="item-examples">
-        <h5 class="sub-heading">Example</h5>
+        <h5 class="sub-heading">示例</h5>
 
         {% for example in item.example %}
             <div class="item-example">

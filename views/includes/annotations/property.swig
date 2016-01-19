@@ -1,6 +1,6 @@
 {% if item.property.length > 0 %}
     <div class="item-parameters item-propertys">
-        <h5 class="sub-heading">Propertys</h5>
+        <h5 class="sub-heading">属性</h5>
 
         <dl class="item-parameters">
             {% for property in item.property %}

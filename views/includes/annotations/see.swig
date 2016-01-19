@@ -6,7 +6,7 @@
         {% if not title_displayed %}
             {% set title_displayed = true %}
             <div class="item-see">
-                <h5 class="sub-heading">See</h5>
+                <h5 class="sub-heading">参考</h5>
                 <ul class="list">
         {% endif %}
 

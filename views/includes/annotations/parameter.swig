@@ -1,6 +1,6 @@
 {% if item.parameter.length > 0 %}
     <div class="item-parameters">
-        <h5 class="sub-heading">Parameters</h5>
+        <h5 class="sub-heading">参数</h5>
 
         <dl class="item-parameters">
             {% for parameter in item.parameter %}

@@ -6,7 +6,7 @@
         {% if not title_displayed %}
             {% set title_displayed = true %}
             <div class="item-requires">
-                <h5 class="sub-heading">Requires</h5>
+                <h5 class="sub-heading">依赖</h5>
                 <ul class="list">
         {% endif %}
 

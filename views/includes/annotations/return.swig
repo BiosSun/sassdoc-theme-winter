@@ -2,7 +2,7 @@
 {% if item.return %}
     <div class="item-return">
         <h5 class="sub-heading">
-            Returns
+            返回值
 
             {% for type in item.return.type %}
             <span class="item-return-type">
