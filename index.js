@@ -159,14 +159,7 @@ module.exports = function (dest, ctx) {
         // highlight code
         if (item.example) {
             item.example.forEach(function(example) {
-                if (example.type === 'css') {
-                    console.info('0: ', example.code);
-                }
-
                 example.code = highlight.highlightAuto(example.code, [example.type]).value;
-                if (example.type === 'css') {
-                    console.info('1: ', example.code);
-                }
             });
         }
     });
@@ -209,7 +202,7 @@ module.exports = function (dest, ctx) {
         year: new Date().getFullYear()
     };
 
-    console.info(ctx);
+    // console.info(ctx);
 
     /**
      * Now we have prepared the data, we can proxy to the Themeleon
