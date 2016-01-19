@@ -43,10 +43,4 @@
             {% include "../annotations/todo.swig" %}
         </div>
     </div>
-
-    <footer class="item-footer">
-        <div class="content-wrapper">
-            {% include "../annotations/author.swig" %}
-        </div>
-    </footer>
 </section>
