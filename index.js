@@ -29,10 +29,10 @@ swig.setFilter('nin', function (key, object) {
  * 整理 CTX 数据
  */
 function tidyCTX(ctx) {
-     var def = {
+    var def = {
         display: {
-            access: ['public', 'private'],
-            alias: false,
+            access: ['public'],
+            alias: true,
             watermark: true
         },
         groups: {
@@ -109,10 +109,12 @@ function tidyCTX(ctx) {
     ctx.now = {
         year: new Date().getFullYear()
     };
+
+    return ctx;
 }
 
 module.exports = function (dest, ctx) {
-    tidyCTX(ctx);
+    ctx = tidyCTX(ctx);
 
     return Promise.all([
         copy(path.resolve(__dirname, './assets'), path.resolve(dest, 'assets')),
