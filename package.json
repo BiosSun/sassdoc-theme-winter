@@ -1,28 +1,41 @@
 {
   "name": "sassdoc-theme-winter",
   "description": "A fancy new SassDoc theme.",
-  "version": "0.1.2",
+  "title": "SassDoc Winter Theme",
+  "author": "Bios Sun",
+  "version": "0.2.0",
   "keywords": [
     "sassdoc-theme"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BiosSun/sassdoc-theme-winter.git"
+  },
+  "files": [
+    "assets",
+    "views",
+    "dist",
+    "default.json",
+    "index.js",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "main": "index.js",
   "dependencies": {
+    "es6-denodeify": "^0.1.5",
+    "es6-promise": "^3.1.2",
     "extend": "^1.0.0",
+    "fs-extra": "^0.26.5",
     "highlight.js": "^9.0.0",
     "nojiko": "^0.5.8",
     "rio-typesetting": "^0.2.4",
     "sassdoc-extras": "^2.0.0",
-    "swig": "^1.4.2",
-    "themeleon": "^3.0.0"
+    "swig": "^1.4.2"
   },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "main": "index.js",
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
     "bluebird": "^3.0.6",
     "browser-sync": "^2.10.0",
-    "fs-extra": "^0.26.2",
     "gulp": "^3.9.0",
     "gulp-cached": "^1.1.0",
     "gulp-imagemin": "^2.4.0",
