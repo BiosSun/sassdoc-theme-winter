@@ -144,6 +144,15 @@
         }
     }
 
+    .item-return-type {
+        @extend %item-label;
+
+        color: $lable-color-type;
+        border-color: $lable-color-type;
+
+        margin-left: .4em;
+    }
+
     .item-requires {
         .require-type {
             @extend %clear-code-style;

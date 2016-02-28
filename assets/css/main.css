@@ -27,7 +27,7 @@
  * 使用 SVG 背景图片来模拟实现左边及右边超细边框
  * @param $color {Color} 边框颜色
  */
-.sidebar-nav-list .item-type, .document .item-access, .document .item-type, .document .item-parameter-type, .document .item-parameter-default {
+.sidebar-nav-list .item-type, .document .item-access, .document .item-type, .document .item-parameter-type, .document .item-parameter-default, .document .item-return-type {
   display: inline;
   padding: .2em 1em .2em;
   font-size: 75%;
@@ -774,7 +774,7 @@ hr {
   vertical-align: baseline;
 }
 
-.document .item-access, .document .item-type, .document .item-parameter-type, .document .item-parameter-default {
+.document .item-access, .document .item-type, .document .item-parameter-type, .document .item-parameter-default, .document .item-return-type {
   border: 1px solid #444;
   vertical-align: middle;
   position: relative;
@@ -872,6 +872,12 @@ hr {
 .document .item-parameter-default {
   color: #4797c3;
   border-color: #4797c3;
+}
+
+.document .item-return-type {
+  color: #c1a95f;
+  border-color: #c1a95f;
+  margin-left: .4em;
 }
 
 .document .item-requires .require-type {
