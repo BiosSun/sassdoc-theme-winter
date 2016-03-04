@@ -5,6 +5,7 @@ var fs = require('fs');
 var fse = require('fs-extra');
 var extend = require('extend');
 
+var _ = require('lodash');
 var swig = require('swig');
 var extras = require('sassdoc-extras');
 var highlight = require('highlight.js');
@@ -16,13 +17,41 @@ var renderFile = denodeify(swig.renderFile);
 var writeFile = denodeify(fs.writeFile);
 
 
-// 添加自定义的 swig 过滤器
+// 添加自定义的 swig 过滤器及标签
 swig.setFilter('in', function (key, object) {
     return key in object;
 });
 
 swig.setFilter('nin', function (key, object) {
     return !(key in object);
+});
+
+swig.setFilter('getKeysBySort', function(sourceObject, sorts) {
+    var sourceKeys = _.keys(sourceObject),
+        targetKeys = [].concat(sourceKeys);
+
+    targetKeys = targetKeys.sort(function(k1, k2) {
+        var k1_index = sorts.indexOf(k1),
+            k2_index = sorts.indexOf(k2);
+
+        if (k1_index !== -1 && k2_index !== -1) {
+            return k1_index < k2_index ? -1 : 1;
+        }
+        else if (k1_index !== -1) {
+            return -1;
+        }
+        else if (k2_index !== -1) {
+            return 1;
+        }
+        else {
+            k1_index = sourceKeys.indexOf(k1);
+            k2_index = sourceKeys.indexOf(k2);
+
+            return k1_index < k2_index ? -1 : 1;
+        }
+    });
+
+    return targetKeys;
 });
 
 /**
@@ -116,12 +145,13 @@ function tidyCTX(ctx) {
 module.exports = function (dest, ctx) {
     ctx = tidyCTX(ctx);
 
+    var templatePath = path.resolve(__dirname, './views/index.swig');
+
     return Promise.all([
         copy(path.resolve(__dirname, './assets'), path.resolve(dest, 'assets')),
 
-        renderFile(path.resolve(__dirname, './views/index.swig'), ctx)
-            .then(function(html) {
-                writeFile(path.resolve(dest, 'index.html'), html);
-            })
+        renderFile(templatePath, ctx).then(function(html) {
+            writeFile(path.resolve(dest, 'index.html'), html);
+        })
     ]);
 };

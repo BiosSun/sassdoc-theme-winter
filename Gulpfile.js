@@ -88,13 +88,22 @@ gulp.task('compile', function () {
                 'private'
             ],
             alias: true,
-            watermark: true
+            watermark: true,
+            sort: {
+                group: [
+                    'undefined'
+                ],
+                type: [
+                    'variable',
+                    'function',
+                    'mixin',
+                    'placeholder'
+                ]
+            }
         },
-       verbose: true,
+        verbose: true,
         dest: dirs.docs,
         theme: './',
-        // Disable cache to enable live-reloading.
-        // Usefull for some template engines (e.g. Swig).
         cache: false,
         package: dirs.package
     };

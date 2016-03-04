@@ -1,7 +1,8 @@
 {% extends './layouts/base.swig' %}
 
 {% block content %}
-    {% for group_name, group in data.byGroupAndType %}
+    {% for group_name in data.byGroupAndType | getKeysBySort(display.sort.group) %}
+        {% set group = data.byGroupAndType[group_name] %}
         <section class="group" id="id--{{ group_name }}">
             <header class="group-header">
                 <div class="content-wrapper">
@@ -9,7 +10,8 @@
                 </div>
             </header>
 
-            {% for type_name, items in group %}
+            {% for type_name in group | getKeysBySort(display.sort.type) %}
+                {% set items = group[type_name] %}
                 <section class="type" id="id--{{ group_name }}-{{ type_name }}">
                     <header class="type-header">
                         <div class="content-wrapper">
