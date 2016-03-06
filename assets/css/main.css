@@ -115,7 +115,7 @@
 }
 
 .document a:visited {
-  color: #211F22;
+  color: false;
 }
 
 .document a:hover {
@@ -825,6 +825,21 @@ hr {
 .document .item-name {
   display: block;
   font-size: 2em;
+}
+
+.document .item-source-link {
+  color: #aaa;
+  float: right;
+  font-size: 12px;
+  border: none;
+}
+
+.document .item-source-link:hover, .document .item-source-link:focus {
+  border: none;
+}
+
+.document .item-source-link:visible {
+  color: #aaa;
 }
 
 .document .item-access {

@@ -86,6 +86,21 @@
         }
     }
 
+    .item-source-link {
+        color: $text-color-quiet;
+        float: right;
+        font-size: $font-size-small;
+        border: none;
+
+        &:hover, &:focus {
+            border: none;
+        }
+
+        &:visible {
+            color: $text-color-quiet;
+        }
+    }
+
     .item-access {
         @extend %item-name-label;
 

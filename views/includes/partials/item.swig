@@ -5,6 +5,8 @@
     <header class="item-header">
         {# item name #}
         <h4 class="item-name">
+            {% include "./item-source-link.swig" %}
+
             {% include "../annotations/access.swig" %}
             {% include "./item-name.swig" %}
 
