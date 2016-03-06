@@ -127,6 +127,15 @@
         margin-left: $distance-horizontal / 2;
     }
 
+    .item-value {
+        @extend %item-name-label;
+
+        color: $lable-color-value;
+        border-color: $lable-color-value;
+
+        margin-left: $distance-horizontal / 2;
+    }
+
     .item.deprecated {
         opacity: .6;
 

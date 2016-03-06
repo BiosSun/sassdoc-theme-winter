@@ -20,6 +20,7 @@
             {% include "../annotations/alias.swig" %}
 
             {% include "../annotations/type.swig" %}
+            {% include "../annotations/value.swig" %}
         </h4>
     </header>
 
