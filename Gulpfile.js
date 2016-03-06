@@ -41,6 +41,7 @@ var dirs = {
     tpl: 'views',
     src: project('nojiko'),
     package: project('nojiko/package.json'),
+    fragments: project('nojiko/doc-fragments'),
     docs: project('sassdoc')
 };
 
@@ -91,7 +92,15 @@ gulp.task('compile', function () {
             watermark: true,
             sort: {
                 group: [
-                    'undefined'
+                    'undefined',
+                    'variables',
+                    'reset',
+                    'scaffolding',
+                    'elements',
+                    'helpers',
+                    'add-ons',
+                    'list',
+                    'map'
                 ],
                 type: [
                     'variable',
@@ -99,6 +108,20 @@ gulp.task('compile', function () {
                     'mixin',
                     'placeholder'
                 ]
+            }
+        },
+        fragments: {
+            document: dirs.fragments + '/document.md',
+            group: {
+                'undefined': dirs.fragments + '/group-undefined.md',
+                'add-ons': dirs.fragments + '/group-add-ons.md',
+                'helpers': dirs.fragments + '/group-helpers.md',
+                'list': dirs.fragments + '/group-list.md',
+                'map': dirs.fragments + '/group-map.md',
+                'elements': dirs.fragments + '/group-elements.md',
+                'reset': dirs.fragments + '/group-reset.md',
+                'scaffolding': dirs.fragments + '/group-scaffolding.md',
+                'variables': dirs.fragments + '/group-variables.md'
             }
         },
         verbose: true,

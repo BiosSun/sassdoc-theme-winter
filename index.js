@@ -4,6 +4,7 @@ var denodeify = require('es6-denodeify');
 var fs = require('fs');
 var fse = require('fs-extra');
 var extend = require('extend');
+var marked = require('marked');
 
 var _ = require('lodash');
 var swig = require('swig');
@@ -15,6 +16,11 @@ denodeify = denodeify(Promise);
 var copy = denodeify(fse.copy);
 var renderFile = denodeify(swig.renderFile);
 var writeFile = denodeify(fs.writeFile);
+
+marked.setOptions({
+    gfm: true,
+    tables: true
+});
 
 
 // 添加自定义的 swig 过滤器及标签
@@ -134,6 +140,35 @@ function tidyCTX(ctx) {
     extras.groupName(ctx);
 
     ctx.data.byGroupAndType = extras.byGroupAndType(ctx.data);
+
+    // 添加文档及分组的文章片段
+    (function() {
+        var fragments = ctx.fragments;
+
+        if (fragments.document) {
+            fragments.document = getFragments(fragments.document);
+        }
+
+        if (fragments.group) {
+            for (var name in fragments.group) {
+                fragments.group[name] = getFragments(fragments.group[name]);
+
+                if ( !(name in ctx.data.byGroupAndType) ) {
+                    ctx.data.byGroupAndType[name] = {};
+
+                    if ( !(name in ctx.groups) ) {
+                        ctx.groups[name] = name;
+                    }
+                }
+            }
+        }
+
+        function getFragments(path) {
+            var content = fs.readFileSync(path);
+            content = marked(content.toString());
+            return content;
+        }
+    })();
 
     ctx.now = {
         year: new Date().getFullYear()
