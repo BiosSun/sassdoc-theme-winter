@@ -814,7 +814,7 @@ hr {
 }
 
 .document .item {
-  padding: 10px 0;
+  margin: 70px 0;
 }
 
 .document .item .sub-heading {
@@ -940,6 +940,35 @@ hr {
 .document .item-example-paratactic .example-code > code {
   background: transparent;
   overflow: visible;
+}
+
+.document .footer {
+  color: #aaa;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 40px;
+  padding: 20px 0;
+  font-size: 12px;
+}
+
+.document .footer:before, .document .footer:after {
+  content: " ";
+  display: table;
+}
+
+.document .footer:after {
+  clear: both;
+}
+
+.document .footer a {
+  color: #aaa;
+}
+
+.document .footer .copyright {
+  float: left;
+}
+
+.document .footer .watermark {
+  float: right;
 }
 
 .sidebar {

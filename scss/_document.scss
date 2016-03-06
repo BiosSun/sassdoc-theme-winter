@@ -69,7 +69,7 @@
     // ---------------------------
 
     .item {
-        padding: ($distance-vertical * .5) 0;
+        margin: ($distance-vertical * 3.5) 0;
 
         .sub-heading {
             padding-bottom: 0.6em;
@@ -221,6 +221,27 @@
                 background: transparent;
                 overflow: visible;
             }
+        }
+    }
+
+    .footer {
+        @include clearfix;
+        color: $text-color-quiet;
+        border-top: 1px solid $line-color;
+        margin-top: $distance-vertical * 2;
+        padding: $distance-vertical 0;
+        font-size: $font-size-small;
+
+        a {
+            color: $text-color-quiet;
+        }
+
+        .copyright {
+            float: left;
+        }
+
+        .watermark {
+            float: right;
         }
     }
 
