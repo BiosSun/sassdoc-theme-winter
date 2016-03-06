@@ -764,6 +764,7 @@ hr {
 
 .document {
   margin-left: 270px;
+  overflow-x: hidden;
 }
 
 .document .item-name code, .document .item-parameter-name code, .document .item-parameter-default code, .document .item-requires .require-type, .document .item-requires .require-name code {
@@ -792,8 +793,10 @@ hr {
 }
 
 .document .group-header {
-  background: #f7f7f7;
-  padding: 20px 0;
+  background: #fafafa;
+  margin-left: -10000px;
+  margin-right: -10000px;
+  padding: 20px 10000px;
 }
 
 .document .group-name {

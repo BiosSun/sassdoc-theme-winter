@@ -21,15 +21,15 @@
         <article class="document" role="main">
             {% include "../includes/partials/header.swig" %}
 
-            {% if data.length == 0 %}
-                <section class="empty-section">
-                    <div class="content-wrapper">
+            <div class="content content-wrapper">
+                {% if data.length == 0 %}
+                    <section class="empty-section">
                         <p>Seems like nothing has been documented yet!</p>
-                    </div>
-                </section>
-            {% else %}
-                {% block content %}{% endblock %}
-            {% endif %}
+                    </section>
+                {% else %}
+                    {% block content %}{% endblock %}
+                {% endif %}
+            </div>
 
             {% include "../includes/partials/footer.swig" %}
         </article>

@@ -10,6 +10,7 @@
 
 .document {
     margin-left: 270px;
+    overflow-x: hidden;
 
     %clear-code-style {
         font-size: inherit;
@@ -40,8 +41,14 @@
     }
 
     .group-header {
-        background: #f7f7f7;
-        padding: $distance-vertical 0;
+        background: #fafafa;
+
+        margin: {
+            left: -10000px;
+            right: -10000px;
+        }
+
+        padding: $distance-vertical 10000px;
     }
 
     .group-name {

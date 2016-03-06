@@ -4,9 +4,7 @@
 
     {% if fragments && fragments.document %}
         <section class="fragment" id="id--fragment-document">
-            <div class="content-wrapper">
-                {{ fragments.document | safe }}
-            </div>
+            {{ fragments.document | safe }}
         </section>
     {% endif %}
 
@@ -14,16 +12,12 @@
         {% set group = data.byGroupAndType[group_name] %}
         <section class="group" id="id--{{ group_name }}">
             <header class="group-header">
-                <div class="content-wrapper">
-                    <h2 class="group-name">{{ groups[group_name] }}</h2>
-                </div>
+                <h2 class="group-name">{{ groups[group_name] }}</h2>
             </header>
 
             {% if fragments && fragments.group && fragments.group[group_name] %}
                 <section class="fragment" id="id--fragment-{{ group_name }}">
-                    <div class="content-wrapper">
-                        {{ fragments.group[group_name] | safe }}
-                    </div>
+                    {{ fragments.group[group_name] | safe }}
                 </section>
             {% endif %}
 
@@ -31,9 +25,7 @@
                 {% set items = group[type_name] %}
                 <section class="type" id="id--{{ group_name }}-{{ type_name }}">
                     <header class="type-header">
-                        <div class="content-wrapper">
-                            <h3 class="type-name">{{ (type_name + 's') | capitalize }}</h3>
-                        </div>
+                        <h3 class="type-name">{{ (type_name + 's') | capitalize }}</h3>
                     </header>
 
                     {% for item in items %}
