@@ -10,6 +10,16 @@
 
 ## 配置
 
+### 隐藏依赖项
+
+在 display 对象中添加 require 属性，并设置其值为 false，即可不再显示依赖相关的内容。
+
+```
+"display": {
+    "require": false
+}
+```
+
 ### 自定义分组及类型排序
 
 可在 display 配置项下添加一个 sort 属性，该属性下可指定两个子属性：group 及 type，分别用于定义分组及类型的排列顺序，示例代码如下：
@@ -34,3 +44,18 @@
 }
 ```
 
+### 配置项目或分组的描述内容
+
+添加一个 fragments 配置，在其中进行配置：
+
+```
+"fragments": {
+    "document": "./fragments/document.md",
+    "group": {
+        "undefined": "./fragments/group-undefined.md",
+        "helpers": "./fragments/group-helpers.md"
+    }
+}
+```
+
+属性值为描述内容文件的访问路径，**仅支持 markdown 格式的内容**。
