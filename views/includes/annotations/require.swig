@@ -25,7 +25,7 @@
             </li>
         {% else %}
             <li>
-                <span class="require-type" data-type="{{ require.item.context.type }}">{{ require.item.context.type[0] }}</span>
+                <span class="require-type" data-type="{{ require.item.context.type }}" title="{{ require.item.context.type | capitalize }}">{{ require.item.context.type[0] }}</span>
                 <a class="require-name" href="#id--{{ require.item.group[0] }}-{{ require.item.context.type }}-{{ require.item.context.name }}"><code>{{ require.item.context.name }}</code></a>
                 {% if require.description %}
                     &mdash; {{ require.description }}

@@ -36,7 +36,7 @@
                                         <li class="item" rule="treeitem">
                                             <div class="item-body">
                                                 <a class="item-content" href="#id--{{ group_name }}-{{type_name}}-{{ item.context.name }}">
-                                                    <span class="item-type" data-type="{{type_name}}">{{ type_name[0] }}</span>
+                                                    <span class="item-type" data-type="{{type_name}}" title="{{ type_name | capitalize }}">{{ type_name[0] }}</span>
                                                     <span class="item-title">
                                                         {{ item.context.name }}
                                                     </span>
