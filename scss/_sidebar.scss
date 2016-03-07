@@ -10,33 +10,87 @@
     border-right: 1px solid $line-color;
     background: #fff;
 
-    overflow: auto;
+    overflow: scroll;
     overflow-x: hidden;
 }
 
 .sidebar-nav-list {
     margin: 0;
     padding: 0;
-}
 
-.sidebar-nav-list .item-content {
-    display: block;
-    padding: ($distance-vertical * .7) $distance-horizontal;
-    margin: -1px 0;
-
-    border-top: 1px solid $line-color;
-    border-bottom: 1px solid $line-color;
-
-    @include text-overflow-ellipsis;
-
-    &:hover {
-         text-decoration: none;
+    .item {
+        display: block;
     }
-}
 
-.sidebar-nav-list .item-type {
-    @extend %mini-type-label;
-    @extend %mini-type-label-color;
+    .item-body {
+        position: relative;
+        @include clearfix;
+        margin: -1px 0;
+ 
+        border-top: 1px solid $line-color;
+        border-bottom: 1px solid $line-color;
+    }
+
+    $item-content-padding-vertical: $distance-vertical * .5;
+    $item-content-padding-horizontal: $distance-horizontal;
+    $item-content-font-size: $font-size-small;
+    $item-content-line-height: $line-height-small;
+
+    .item-content {
+        display: block;
+        padding: $item-content-padding-vertical $item-content-padding-horizontal;
+
+        font-size: $item-content-font-size;
+        line-height: $item-content-line-height;
+
+        @include text-overflow-ellipsis;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    $item-content-height: $item-content-padding-vertical * 2 + compute-line-height($item-content-font-size, $item-content-line-height);
+
+    .item-toggle {
+        $size: $item-content-height;
+
+        float: right;
+        @include size($size);
+
+        font-size: $size * .3;
+        line-height: $size;
+        text-align: center;
+
+        border-left: 1px solid $line-color;
+
+        .fa {
+            display: none;
+        }
+
+        &:hover {
+            background: #fafafa;
+            text-decoration: none;
+        }
+
+        &:focus {
+            text-decoration: none;
+            outline: 1px dashed $line-color;
+        }
+    }
+
+    .item.opened .item-toggle .icon-opened {
+        display: inline;
+    }
+
+    .item.closed .item-toggle .icon-closed {
+        display: inline;
+    }
+
+    .item-type {
+        @extend %mini-type-label;
+        @extend %mini-type-label-color;
+    }
 }
 
 .sidebar-nav-group-list > .item > .item-content {

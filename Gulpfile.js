@@ -133,7 +133,7 @@ gulp.task('compile', function () {
 
     var sdStream = sassdoc(config);
 
-    gulp.src(path.join(dirs.src, '**/*.scss'))
+    gulp.src(path.join(dirs.src, 'sass/**/*.scss'))
         .pipe(sdStream);
 
     // Await for the full documentation process.
