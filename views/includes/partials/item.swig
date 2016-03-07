@@ -36,7 +36,11 @@
         {% include "../annotations/example.swig" %}
         {% include "../annotations/throw.swig" %}
         {% include "../annotations/link.swig" %}
-        {% include "../annotations/require.swig" %}
+
+        {% if display.require !== false %}
+            {% include "../annotations/require.swig" %}
+        {% endif %}
+
         {% include "../annotations/see.swig" %}
         {% include "../annotations/since.swig" %}
         {% include "../annotations/todo.swig" %}
