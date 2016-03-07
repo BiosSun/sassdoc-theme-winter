@@ -13,9 +13,7 @@
         {{ view.test_variable }}
 
         {# Sidebar #}
-        <aside class="sidebar" role="nav">
-            {% block sidebar %}{% endblock %}
-        </aside>
+        {% block sidebar %}{% endblock %}
 
         {# document content #}
         <article class="document" role="main">

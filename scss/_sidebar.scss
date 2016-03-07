@@ -3,11 +3,15 @@
 .sidebar {
     @include position(fixed, 0 null 0 0, 10);
     width: 270px;
+}
 
-    background: #fff;
+.sidebar-body {
+    height: 100%;
     border-right: 1px solid $line-color;
+    background: #fff;
 
     overflow: auto;
+    overflow-x: hidden;
 }
 
 .sidebar-nav-list {
@@ -39,4 +43,56 @@
     font-weight: 600;
     font-size: $font-size-large;
     line-height: $line-height-large;
+}
+
+.sidebar-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    border-right: 1px solid $line-color;
+
+    opacity: 0;
+    cursor: col-resize;
+
+    transition: all 0.1s ease-in 0.1s;
+
+    @mixin set-size($size) {
+        width: $size;
+        right: -($size);
+
+        > .icon {
+            @include size($size);
+
+            font-size: $size * 0.6;
+            line-height: $size;
+
+            @include position(absolute, 50% 0 null 0);
+            margin-top: -($size / 2);
+        }
+    }
+
+    @include set-size(10px);
+
+    &:after {
+        content: ' ';
+        @include position(absolute, 0 -8px 0 -8px, 1);
+    }
+
+    > .icon {
+        text-align: center;
+        color: $text-color-quiet;
+        transition: all 0.1s ease-in 0.1s;
+    }
+
+    &:hover, &.on {
+        @include set-size(16px);
+        opacity: 0.9;
+    }
+
+    &.on {
+        > .icon {
+            color: $text-color;
+        }
+    }
 }

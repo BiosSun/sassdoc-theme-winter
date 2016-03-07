@@ -2,3 +2,7 @@
 
 @import "nojiko/sass/reset";
 @import "nojiko/sass/scaffolding";
+
+.disable-select {
+    user-select: none;
+}

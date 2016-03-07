@@ -754,6 +754,13 @@ hr {
   color: #aaaaaa;
 }
 
+.disable-select {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .content-wrapper {
   max-width: 840px;
   margin-left: auto;
@@ -999,9 +1006,14 @@ hr {
   left: 0;
   z-index: 10;
   width: 270px;
-  background: #fff;
+}
+
+.sidebar-body {
+  height: 100%;
   border-right: 1px solid #f0f0f0;
+  background: #fff;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 .sidebar-nav-list {
@@ -1028,6 +1040,71 @@ hr {
   font-weight: 600;
   font-size: 18px;
   line-height: 1.34;
+}
+
+.sidebar-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+  border-right: 1px solid #f0f0f0;
+  opacity: 0;
+  cursor: col-resize;
+  -webkit-transition: all 0.1s ease-in 0.1s;
+  transition: all 0.1s ease-in 0.1s;
+  width: 10px;
+  right: -10px;
+}
+
+.sidebar-handle > .icon {
+  width: 10px;
+  height: 10px;
+  font-size: 6px;
+  line-height: 10px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin-top: -5px;
+}
+
+.sidebar-handle:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: -8px;
+  bottom: 0;
+  left: -8px;
+  z-index: 1;
+}
+
+.sidebar-handle > .icon {
+  text-align: center;
+  color: #aaa;
+  -webkit-transition: all 0.1s ease-in 0.1s;
+  transition: all 0.1s ease-in 0.1s;
+}
+
+.sidebar-handle:hover, .sidebar-handle.on {
+  width: 16px;
+  right: -16px;
+  opacity: 0.9;
+}
+
+.sidebar-handle:hover > .icon, .sidebar-handle.on > .icon {
+  width: 16px;
+  height: 16px;
+  font-size: 9.6px;
+  line-height: 16px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin-top: -8px;
+}
+
+.sidebar-handle.on > .icon {
+  color: #444;
 }
 
 .sm {

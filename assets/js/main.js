@@ -1,6 +1,9 @@
 $(function() {
-
     var
+
+    $bd = $('body'),
+    $win = $(window),
+    $doc = $(document),
 
     sourceKeywords = [
         'usage',
@@ -65,4 +68,45 @@ $(function() {
             var description = $(this).find('.example-description');
             description.stop().fadeIn(500);
         });
+
+    /**
+     * 在鼠标拖动侧边栏滑块时，改变侧边栏的宽度
+     */
+    (function() {
+        $('.sidebar-handle').on('mousedown.sidebar', function(e) {
+            var sidebarHandle = $(this),
+                sidebar = $('.sidebar'),
+                doc = $('.document'),
+
+                sidebarWidth = sidebar.width(),
+
+                maxWidth = $win.width() / 2,
+                begin = e.pageX;
+
+            sidebarHandle.addClass('on');
+            disableSelect();
+
+            $('body')
+                .on('mousemove.sidebar', function(e) {
+                    var end = e.pageX,
+                        width = Math.min(sidebarWidth + (end - begin), maxWidth);
+
+                    sidebar.width(width);
+                    doc.css('margin-left', width);
+                })
+                .on('mouseup.sidebar', function() {
+                    $bd.off('.sidebar');
+                    enableSelect();
+                    sidebarHandle.removeClass('on');
+                });
+        });
+    })();
+
+    function disableSelect() {
+        $bd.addClass('disable-select');
+    }
+
+    function enableSelect() {
+        $bd.removeClass('disable-select');
+    }
 });
