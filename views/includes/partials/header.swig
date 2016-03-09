@@ -5,7 +5,7 @@
             {{ package.title }}
             {% if package.version %}<span>{{ package.version }}</span>{% endif %}
         </h1>
-        {% if package.description %}
+        {% if package.description && display.tagline !== false %}
         <p class="tagline">{{ package.description }}</p>
         {% endif %}
     </div>

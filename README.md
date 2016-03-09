@@ -20,6 +20,17 @@
 }
 ```
 
+### 隐藏副标题
+
+默认，该主题会使用 package.description 作为标语显示在项目名称下面，
+若不希望显示该标语，可在 display 对象中添加 tagline 属性，并设置其值为 false 即可将其隐藏：
+
+```
+"display": {
+    "tagline": false
+}
+```
+
 ### 自定义分组及类型排序
 
 可在 display 配置项下添加一个 sort 属性，该属性下可指定两个子属性：group 及 type，分别用于定义分组及类型的排列顺序，示例代码如下：

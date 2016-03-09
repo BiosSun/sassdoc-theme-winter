@@ -91,6 +91,7 @@ gulp.task('compile', function () {
             alias: true,
             watermark: true,
             require: false,
+            tagline: false,
             sort: {
                 group: [
                     'undefined',
