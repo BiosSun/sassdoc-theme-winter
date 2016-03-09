@@ -145,6 +145,10 @@ function tidyCTX(ctx) {
     (function() {
         var fragments = ctx.fragments;
 
+        if (!fragments) {
+            return;
+        }
+
         if (fragments.document) {
             fragments.document = getFragments(fragments.document);
         }
