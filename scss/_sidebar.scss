@@ -91,6 +91,14 @@
         @extend %mini-type-label;
         @extend %mini-type-label-color;
     }
+
+    .item.high {
+        > .item-body {
+            > .item-content {
+                color: #4797c3;
+            }
+        }
+    }
 }
 
 .sidebar-nav-group-list > .item > .item-content {

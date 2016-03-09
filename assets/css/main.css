@@ -1087,6 +1087,10 @@ hr {
   display: inline;
 }
 
+.sidebar-nav-list .item.high > .item-body > .item-content {
+  color: #4797c3;
+}
+
 .sidebar-nav-group-list > .item > .item-content {
   font-weight: 600;
   font-size: 18px;

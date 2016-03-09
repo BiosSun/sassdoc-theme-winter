@@ -102,30 +102,6 @@ $(function() {
         });
     })();
 
-    /**
-     * 侧边栏折叠功能
-     */
-    (function() {
-        $('.sidebar-body').on('click', '.sidebar-nav-list .item-toggle', function() {
-            var itemToggle = $(this),
-                item = itemToggle.closest('.item');
-
-            toggle(item);
-        });
-
-        $('.sidebar-body').on('dblclick', '.sidebar-nav-list .item-content', function() {
-            var itemContent = $(this),
-                item = itemContent.closest('.item');
-
-            toggle(item);
-        });
-
-        function toggle(item) {
-            item.toggleClass('opened closed');
-            item.find('[rule=tree]').stop(true, true).slideToggle(200);
-        }
-    })();
-
     function disableSelect() {
         $bd.addClass('disable-select');
     }
