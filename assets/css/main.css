@@ -799,6 +799,11 @@ hr {
   margin-bottom: 30px;
 }
 
+.document .fragment {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
 .document .group-header {
   background: #fafafa;
   margin-left: -10000px;
