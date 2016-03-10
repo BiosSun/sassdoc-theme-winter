@@ -70,6 +70,17 @@ $(function() {
         });
 
     /**
+     * 所有文档内容中的链接，都在新标签页中打开
+     */
+    $('.document a').each(function(index, link) {
+        link = $(link);
+
+        if (link.attr('href').indexOf('http') === 0) {
+            link.attr('target', '_blank');
+        }
+    });
+
+    /**
      * 在鼠标拖动侧边栏滑块时，改变侧边栏的宽度
      */
     (function() {
