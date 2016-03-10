@@ -40,9 +40,6 @@ $(function() {
             return;
         }
 
-        console.info('scrollTop', scrollTop);
-        console.info('range', range);
-
         for ( i = range.length - 1; i >= 0; i-- ) {
             rangeItem = range[i];
 
