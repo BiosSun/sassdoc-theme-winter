@@ -110,11 +110,12 @@ $(function() {
             if (range) { break; }
         }
 
-        if ( (range[0].targetTop + highTriggerOffset) > scrollTop) {
-            range = positionInfos.ranges[rangeId - 1];
+        if ( !range || (range[0].targetTop + highTriggerOffset <= scrollTop) ) {
+            return range;
         }
-
-        return range;
+        else {
+            return getRangeByScrollTop(rangeId * positionInfos.rangeLength - 1);
+        }
     }
 
     /**
@@ -123,6 +124,7 @@ $(function() {
     function getPositionInfos() {
         var rangeLength = 1000,
             ranges = [],
+            range,
 
             positionInfos = {
                 rangeLength: rangeLength,
@@ -165,9 +167,11 @@ $(function() {
         });
 
         for (var i = 0; i < ranges.length; i++) {
-            ranges[i].sort(function(a, b) {
-                return a.targetTop - b.targetTop;
-            });
+            if ( (range = ranges[i]) ) {
+                range.sort(function(a, b) {
+                    return a.targetTop - b.targetTop;
+                });
+            }
         }
 
         return positionInfos;
