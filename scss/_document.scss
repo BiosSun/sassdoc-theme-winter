@@ -68,8 +68,8 @@
 
     .type-header {
         border-bottom: 1px dashed #e0e0e0;
-        padding: $distance-vertical 0;
-        margin: $distance-vertical 0;
+        padding: $distance-vertical 10000px;
+        margin: $distance-vertical * 2.5 -10000px $distance-vertical * 3.5;
     }
 
     .type-name {
