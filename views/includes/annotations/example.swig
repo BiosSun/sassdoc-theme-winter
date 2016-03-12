@@ -9,7 +9,7 @@
                     <div class="example-description">{{ example.description | safe }}</div>
                 {% endif %}
 
-                <pre class="example-code" data-language="{{ example.type }}"><code>{{ example.code | safe }}</code></pre>
+                <pre class="example-code"><code class="lang-{{ example.type }}">{{ example.code | safe }}</code></pre>
             </div>
         {% endfor %}
     </div>

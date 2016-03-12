@@ -1,3 +1,5 @@
+hljs.initHighlightingOnLoad();
+
 $(function() {
     var
 

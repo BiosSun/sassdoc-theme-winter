@@ -9,7 +9,6 @@ var marked = require('marked');
 var _ = require('lodash');
 var swig = require('swig');
 var extras = require('sassdoc-extras');
-var highlight = require('highlight.js');
 
 denodeify = denodeify(Promise);
 
@@ -127,13 +126,6 @@ function tidyCTX(ctx) {
 
         if (item.return && item.return.type) {
             item.return.type = split(item.return.type);
-        }
-
-        // highlight code
-        if (item.example) {
-            item.example.forEach(function(example) {
-                example.code = highlight.highlightAuto(example.code, [example.type]).value;
-            });
         }
     });
 
