@@ -72,7 +72,8 @@ function tidyCTX(ctx) {
         groups: {
             'undefined': 'General'
         },
-        'shortcutIcon': 'http://sass-lang.com/favicon.ico'
+        'shortcutIcon': 'http://sass-lang.com/favicon.ico',
+        'sourceLinkPrefix': ''
     };
 
     ctx.groups = extend(def.groups, ctx.groups);

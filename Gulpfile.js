@@ -130,7 +130,8 @@ gulp.task('compile', function () {
         dest: dirs.docs,
         theme: './',
         cache: false,
-        package: dirs.package
+        package: dirs.package,
+        sourceLinkPrefix: 'sass/'
     };
 
     var sdStream = sassdoc(config);
