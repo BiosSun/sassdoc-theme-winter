@@ -38,13 +38,13 @@
 ``` json
 "display": {
     "sort": {
-        "group": {
+        "group": [
             "undefined",
             "helpers",
             "add-ons",
             "list",
             "map"
-        },
+        ],
         "type": [
             "variable",
             "function",
