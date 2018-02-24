@@ -1,4 +1,4 @@
-.sidebar-nav-list .item-type, .document .item-access, .document .item-type, .document .item-value, .document .item-parameter-type, .document .item-parameter-default, .document .item-return-type {
+.sidebar-nav-list .item-type, .document .item-access, .document .item-parameter-type, .document .item-parameter-default, .document .item-return-type {
   display: inline;
   padding: .2em 1em .2em;
   font-size: 75%;
@@ -755,14 +755,14 @@ hr {
   vertical-align: baseline;
 }
 
-.document .item-access, .document .item-type, .document .item-value, .document .item-parameter-type, .document .item-parameter-default, .document .item-return-type {
+.document .item-access, .document .item-parameter-type, .document .item-parameter-default, .document .item-return-type {
   border: 1px solid #444;
   vertical-align: middle;
   position: relative;
   top: -1px;
 }
 
-.document .item-access, .document .item-type, .document .item-value {
+.document .item-access {
   font-size: .5em;
   font-weight: 300;
 }
@@ -796,6 +796,51 @@ hr {
 
 .document .type-name {
   margin: 0;
+}
+
+.document .variables {
+  width: 130%;
+  margin-left: -15%;
+  font-size: 13px;
+}
+
+.document .variables th, .document .variables td {
+  vertical-align: top;
+  padding-top: 1.4em;
+  padding-bottom: 1.4em;
+}
+
+.document .variables th h1, .document .variables th h2, .document .variables th h3, .document .variables th h4, .document .variables th h5, .document .variables th h6, .document .variables th p, .document .variables th pre, .document .variables th ul, .document .variables th ol, .document .variables th dl, .document .variables th table, .document .variables th form, .document .variables th hr, .document .variables th .document-block, .document .variables td h1, .document .variables td h2, .document .variables td h3, .document .variables td h4, .document .variables td h5, .document .variables td h6, .document .variables td p, .document .variables td pre, .document .variables td ul, .document .variables td ol, .document .variables td dl, .document .variables td table, .document .variables td form, .document .variables td hr, .document .variables td .document-block {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.document .variables th h1, .document .variables th h2, .document .variables th h3, .document .variables th h4, .document .variables th h5, .document .variables th h6, .document .variables td h1, .document .variables td h2, .document .variables td h3, .document .variables td h4, .document .variables td h5, .document .variables td h6 {
+  margin-top: 1.2em;
+}
+
+.document .variables th > *:first-child, .document .variables td > *:first-child {
+  margin-top: 0;
+}
+
+.document .variables th > *:first-child > *:first-child, .document .variables td > *:first-child > *:first-child {
+  margin-top: 0;
+}
+
+.document .variables th > *:first-child > *:first-child > *:first-child, .document .variables td > *:first-child > *:first-child > *:first-child {
+  margin-top: 0;
+}
+
+.document .variables th *:last-child, .document .variables td *:last-child {
+  margin-bottom: 0;
+}
+
+.document .variables th *:last-child > *:last-child, .document .variables td *:last-child > *:last-child {
+  margin-bottom: 0;
+}
+
+.document .variables th *:last-child > *:last-child > *:last-child, .document .variables td *:last-child > *:last-child > *:last-child {
+  margin-bottom: 0;
 }
 
 .document .item {
@@ -837,20 +882,12 @@ hr {
   font-size: 12px;
 }
 
-.document .item-types {
-  white-space: nowrap;
-}
-
 .document .item-type {
   color: #c1a95f;
-  border-color: #c1a95f;
-  margin-left: 10px;
 }
 
 .document .item-value {
   color: #4797c3;
-  border-color: #4797c3;
-  margin-left: 10px;
 }
 
 .document .item.deprecated {

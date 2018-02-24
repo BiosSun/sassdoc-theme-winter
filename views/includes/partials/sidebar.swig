@@ -10,15 +10,17 @@
                 {% for group_name in data.byGroupAndType | getKeysBySort(display.sort.group) %}
 
                     {% set group = data.byGroupAndType[group_name] %}
+                    {% set groupKeys = group | getKeysBySort(display.sort.type) %}
 
                     <li class="item closed" rule="treeitem">
                         <div class="item-body">
-                            {% if Object.keys(group).length %}
+                            {% if groupKeys.length && (groupKeys.length > 1 || groupKeys[0] != 'variable') %}
                                 <a class="item-toggle" href="javascript:">
                                     <i class="icon-opened fa fa-chevron-up"></i>
                                     <i class="icon-closed fa fa-chevron-down"></i>
                                 </a>
                             {% endif %}
+
                             <a class="item-content" href="#id--{{group_name}}">
                                 <span class="item-title">
                                     {{ groups[group_name] }}
@@ -26,24 +28,37 @@
                             </a>
                         </div>
 
-                        {% if Object.keys(group).length %}
+                        {% if groupKeys.length && (groupKeys.length > 1 || groupKeys[0] != 'variable') %}
                             <ul class="sidebar-nav-list sidebar-nav-item-list" style="display: none;" rule="tree">
                                 {% for type_name in group | getKeysBySort(display.sort.type) %}
 
                                     {% set items = group[type_name] %}
 
-                                    {% for item in items %}
+                                    {% if type_name == 'variable' %}
                                         <li class="item" rule="treeitem">
                                             <div class="item-body">
-                                                <a class="item-content" href="#id--{{ group_name }}-{{type_name}}-{{ item.context.name }}">
-                                                    <span class="item-type" data-type="{{type_name}}" title="{{ type_name | capitalize }}">{{ type_name[0] }}</span>
+                                                <a class="item-content" href="#id--{{group_name}}-{{type_name}}-variables">
+                                                    <span class="item-type" data-type="{{type_name}}" title="变量">v</span>
                                                     <span class="item-title">
-                                                        {{ item.context.name }}
+                                                        Variables
                                                     </span>
                                                 </a>
                                             </div>
                                         </li>
-                                    {% endfor %}
+                                    {% else %}
+                                        {% for item in items %}
+                                            <li class="item" rule="treeitem">
+                                                <div class="item-body">
+                                                    <a class="item-content" href="#id--{{ group_name }}-{{type_name}}-{{ item.context.name }}">
+                                                        <span class="item-type" data-type="{{type_name}}" title="{{ type_name | capitalize }}">{{ type_name[0] }}</span>
+                                                        <span class="item-title">
+                                                            {{ item.context.name }}
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
 
                                 {% endfor %}
                             </ul>

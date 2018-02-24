@@ -3,10 +3,10 @@
     <span class="item-types">
         {% for type in item.type %}
             <span class="item-type" title="type">
-                {% if item.type == "*" %}
-                    Any
+                {% if type == "*" %}
+                    any
                 {% else %}
-                    {{ type | capitalize }}
+                    {{ type }}
                 {% endif %}
             </span>
         {% endfor %}

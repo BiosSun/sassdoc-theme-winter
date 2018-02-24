@@ -82,6 +82,61 @@
         margin: 0;
     }
 
+    // variables
+    // ---------------------------
+
+    .variables {  
+        width: 130%;
+        margin-left: -15%;
+        font-size: 13px;
+
+        th, td {
+            vertical-align: top;
+            padding-top: 1.4em;
+            padding-bottom: 1.4em;
+
+            h1, h2, h3, h4, h5, h6, p, pre, ul, ol, dl, table, form, hr, .document-block {
+                margin-top: 0.75em;
+                margin-bottom: 0.75em;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                margin-top: 1.2em;
+            }
+
+            > *:first-child {
+                margin-top: 0;
+
+                > *:first-child {
+                    margin-top: 0;
+
+                    > *:first-child {
+                        margin-top: 0;
+                    }
+                }
+            }
+    
+            *:last-child {
+                margin-bottom: 0;
+
+                > *:last-child {
+                    margin-bottom: 0;
+
+                    > *:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .variables-item-name,
+        .variables-item-types,
+        .variables-item-default {
+            font-family: monospace;
+        }
+
+    }
+
     // item
     // ---------------------------
 
@@ -132,25 +187,15 @@
     }
 
     .item-types {
-        white-space: nowrap;
+        // white-space: nowrap;
     }
 
     .item-type {
-        @extend %item-name-label;
-
         color: $lable-color-type;
-        border-color: $lable-color-type;
-
-        margin-left: $distance-horizontal / 2;
     }
 
     .item-value {
-        @extend %item-name-label;
-
         color: $lable-color-value;
-        border-color: $lable-color-value;
-
-        margin-left: $distance-horizontal / 2;
     }
 
     .item.deprecated {
