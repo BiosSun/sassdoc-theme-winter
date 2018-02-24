@@ -8,6 +8,12 @@
     padding-right: $distance-horizontal;
 }
 
+.content {
+    h1 {
+        display: none;
+    }
+}
+
 .document {
     margin-left: 270px;
     overflow-x: hidden;

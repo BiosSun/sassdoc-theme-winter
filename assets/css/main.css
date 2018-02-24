@@ -738,6 +738,10 @@ hr {
   padding-right: 20px;
 }
 
+.content h1 {
+  display: none;
+}
+
 .document {
   margin-left: 270px;
   overflow-x: hidden;
