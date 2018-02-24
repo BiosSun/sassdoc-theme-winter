@@ -12,29 +12,31 @@
 
 .sidebar-nav-list .item-type {
   display: inline-block;
-  margin-right: 3px;
   padding: 0;
   width: 20px;
   height: 20px;
+  font-size: 100%;
   line-height: 20px;
+  font-weight: bold;
+  font-family: monospace;
   text-transform: uppercase;
-  background: rgba(170, 170, 170, 0.9);
+  color: rgba(170, 170, 170, 0.9);
 }
 
 .sidebar-nav-list [data-type=mixin].item-type {
-  background: rgba(74, 142, 93, 0.9);
+  color: rgba(74, 142, 93, 0.9);
 }
 
 .sidebar-nav-list [data-type=function].item-type {
-  background: rgba(56, 126, 191, 0.9);
+  color: rgba(56, 126, 191, 0.9);
 }
 
 .sidebar-nav-list [data-type=variable].item-type {
-  background: rgba(206, 146, 49, 0.9);
+  color: rgba(206, 146, 49, 0.9);
 }
 
 .sidebar-nav-list [data-type=placeholder].item-type {
-  background: rgba(204, 71, 148, 0.9);
+  color: rgba(204, 71, 148, 0.9);
 }
 
 /*! Rio - v0.2.6 - Bios Sun <biossun@gmail.com> - https://github.com/BiosSun/rio
@@ -843,6 +845,12 @@ hr {
   margin-bottom: 0;
 }
 
+.document .variables .variables-item-name,
+.document .variables .variables-item-types,
+.document .variables .variables-item-default {
+  font-family: monospace;
+}
+
 .document .item {
   margin: 70px 0;
 }
@@ -1015,13 +1023,14 @@ hr {
   left: 0;
   z-index: 10;
   width: 270px;
+  border-right: 1px solid #ddd;
 }
 
 .sidebar-body {
   position: relative;
   height: 100%;
-  border-right: 1px solid #f0f0f0;
   background: #fff;
+  padding: 10px 0;
 }
 
 .sidebar-nav-list {
@@ -1033,11 +1042,12 @@ hr {
   display: block;
 }
 
+.sidebar-nav-list .item-content:hover .item-title {
+  text-decoration: underline;
+}
+
 .sidebar-nav-list .item-body {
   position: relative;
-  margin: -1px 0;
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #f0f0f0;
 }
 
 .sidebar-nav-list .item-body:before, .sidebar-nav-list .item-body:after {
@@ -1070,7 +1080,6 @@ hr {
   font-size: 11.4px;
   line-height: 38px;
   text-align: center;
-  border-left: 1px solid #f0f0f0;
 }
 
 .sidebar-nav-list .item-toggle .fa {
@@ -1105,12 +1114,15 @@ hr {
   line-height: 1.34;
 }
 
+.sidebar-nav-item-list {
+  padding-left: 20px;
+}
+
 .sidebar-handle {
   position: absolute;
   top: 0;
   bottom: 0;
   background: #fff;
-  border-right: 1px solid #f0f0f0;
   opacity: 0;
   cursor: col-resize;
   transition: all 0.1s ease-in 0.1s;

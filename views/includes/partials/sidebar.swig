@@ -12,7 +12,7 @@
                     {% set group = data.byGroupAndType[group_name] %}
                     {% set groupKeys = group | getKeysBySort(display.sort.type) %}
 
-                    <li class="item closed" rule="treeitem">
+                    <li class="item opened" rule="treeitem">
                         <div class="item-body">
                             {% if groupKeys.length && (groupKeys.length > 1 || groupKeys[0] != 'variable') %}
                                 <a class="item-toggle" href="javascript:">
@@ -29,7 +29,7 @@
                         </div>
 
                         {% if groupKeys.length && (groupKeys.length > 1 || groupKeys[0] != 'variable') %}
-                            <ul class="sidebar-nav-list sidebar-nav-item-list" style="display: none;" rule="tree">
+                            <ul class="sidebar-nav-list sidebar-nav-item-list" rule="tree">
                                 {% for type_name in group | getKeysBySort(display.sort.type) %}
 
                                     {% set items = group[type_name] %}
@@ -40,7 +40,7 @@
                                                 <a class="item-content" href="#id--{{group_name}}-{{type_name}}-variables">
                                                     <span class="item-type" data-type="{{type_name}}" title="变量">v</span>
                                                     <span class="item-title">
-                                                        Variables
+                                                        variables
                                                     </span>
                                                 </a>
                                             </div>

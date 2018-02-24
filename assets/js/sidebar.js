@@ -9,7 +9,7 @@ $(function() {
     $doc = $(document),
 
     count = 1,
-    positionInfos = getPositionInfos(),
+    // positionInfos = getPositionInfos(),
     highTriggerOffset = -35,
 
     sidebar = $('.sidebar'),
@@ -22,11 +22,11 @@ $(function() {
         toggleItem(item);
     });
 
-    $win.on('scroll', function(e) {
-        refreshSideBarHigh();
-    });
+    // $win.on('scroll', function(e) {
+    //     refreshSideBarHigh();
+    // });
 
-    refreshSideBarHigh();
+    // refreshSideBarHigh();
 
     // 初始化滚动条组件，并在窗口尺寸改变时，更新其状态
     sidebarBody.perfectScrollbar({
@@ -38,167 +38,167 @@ $(function() {
         sidebarBody.perfectScrollbar('update');
     });
 
-    (function() {
-        var scrollHeight = 0;
+    // (function() {
+    //     var scrollHeight = 0;
 
-        setInterval(function() {
-            var currentScrollHeight = sidebarBody[0].scrollHeight;
+    //     setInterval(function() {
+    //         var currentScrollHeight = sidebarBody[0].scrollHeight;
 
-            if (currentScrollHeight !== scrollHeight ) {
-                sidebarBody.perfectScrollbar('update');
-                scrollHeight = currentScrollHeight;
-            }
-        }, 100);
-    })();
+    //         if (currentScrollHeight !== scrollHeight ) {
+    //             sidebarBody.perfectScrollbar('update');
+    //             scrollHeight = currentScrollHeight;
+    //         }
+    //     }, 100);
+    // })();
 
-    /**
-     * 根据当前的滚动位置刷新侧边栏的高亮状态
-     */
-    function refreshSideBarHigh() {
-        var scrollTop = $win.scrollTop(),
-            range = getRangeByScrollTop(scrollTop),
-            rangeItem, i;
+    // /**
+    //  * 根据当前的滚动位置刷新侧边栏的高亮状态
+    //  */
+    // function refreshSideBarHigh() {
+    //     var scrollTop = $win.scrollTop(),
+    //         range = getRangeByScrollTop(scrollTop),
+    //         rangeItem, i;
 
-        if (!range) {
-            return;
-        }
+    //     if (!range) {
+    //         return;
+    //     }
 
-        for ( i = range.length - 1; i >= 0; i-- ) {
-            rangeItem = range[i];
+    //     for ( i = range.length - 1; i >= 0; i-- ) {
+    //         rangeItem = range[i];
 
-            if ( (rangeItem.targetTop + highTriggerOffset) <= scrollTop ) {
-                highItem( rangeItem.positionInfo.itemContent.closest('.item') );
-                break;
-            }
-        }
-    }
+    //         if ( (rangeItem.targetTop + highTriggerOffset) <= scrollTop ) {
+    //             highItem( rangeItem.positionInfo.itemContent.closest('.item') );
+    //             break;
+    //         }
+    //     }
+    // }
 
-    /**
-     * 高亮某个元素
-     */
-    function highItem(item) {
-        var currentHighItem = sidebarBody.find('.item.high');
+    // /**
+    //  * 高亮某个元素
+    //  */
+    // function highItem(item) {
+    //     var currentHighItem = sidebarBody.find('.item.high');
 
-        if (currentHighItem.is(item)) {
-            return;
-        }
+    //     if (currentHighItem.is(item)) {
+    //         return;
+    //     }
 
-        currentHighItem.removeClass('high');
-        item.addClass('high');
+    //     currentHighItem.removeClass('high');
+    //     item.addClass('high');
 
-        // 打开高亮节点的所有父节点
-        var openParents = item.parents('.item');
+    //     // 打开高亮节点的所有父节点
+    //     var openParents = item.parents('.item');
 
-        openParents.each(function() {
-            openItem($(this));
-        });
+    //     openParents.each(function() {
+    //         openItem($(this));
+    //     });
 
-        // 关闭当前高亮节点的所有父节点，直到与待高亮节点相同的父节点
-        if (currentHighItem.length) {
-            var closeParents = parentsNotHas(currentHighItem[0], item[0]);
+    //     // 关闭当前高亮节点的所有父节点，直到与待高亮节点相同的父节点
+    //     if (currentHighItem.length) {
+    //         var closeParents = parentsNotHas(currentHighItem[0], item[0]);
 
-            closeParents.each(function() {
-                closeItem($(this));
-            });
-        }
-    }
+    //         closeParents.each(function() {
+    //             closeItem($(this));
+    //         });
+    //     }
+    // }
 
-    /**
-     * 查找一个 DOM 元素的祖先元素，这些祖先元素不包含所指定的过滤用 DOM 元素
-     * @return 返回一个 jQuery 对象，包含所有找到的父元素
-     */
-    function parentsNotHas(el, filter) {
-        var parents = [],
-            parent = el.parentElement;
+    // /**
+    //  * 查找一个 DOM 元素的祖先元素，这些祖先元素不包含所指定的过滤用 DOM 元素
+    //  * @return 返回一个 jQuery 对象，包含所有找到的父元素
+    //  */
+    // function parentsNotHas(el, filter) {
+    //     var parents = [],
+    //         parent = el.parentElement;
 
-        while(parent) {
-            if ( $.contains(parent, filter) ) {
-                parent = undefined;
-            }
-            else {
-                parents.push(parent);
-                parent = parent.parentElement;
-            }
-        }
+    //     while(parent) {
+    //         if ( $.contains(parent, filter) ) {
+    //             parent = undefined;
+    //         }
+    //         else {
+    //             parents.push(parent);
+    //             parent = parent.parentElement;
+    //         }
+    //     }
 
-        return $(parents);
-    }
+    //     return $(parents);
+    // }
 
-    function getRangeByScrollTop(scrollTop) {
-        var rangeId = Math.floor(scrollTop / positionInfos.rangeLength),
-            range;
+    // function getRangeByScrollTop(scrollTop) {
+    //     var rangeId = Math.floor(scrollTop / positionInfos.rangeLength),
+    //         range;
 
-        for ( ; rangeId >= 0; rangeId--) {
-            range = positionInfos.ranges[rangeId];
-            if (range) { break; }
-        }
+    //     for ( ; rangeId >= 0; rangeId--) {
+    //         range = positionInfos.ranges[rangeId];
+    //         if (range) { break; }
+    //     }
 
-        if ( !range || (range[0].targetTop + highTriggerOffset <= scrollTop) ) {
-            return range;
-        }
-        else {
-            return getRangeByScrollTop(rangeId * positionInfos.rangeLength - 1);
-        }
-    }
+    //     if ( !range || (range[0].targetTop + highTriggerOffset <= scrollTop) ) {
+    //         return range;
+    //     }
+    //     else {
+    //         return getRangeByScrollTop(rangeId * positionInfos.rangeLength - 1);
+    //     }
+    // }
 
-    /**
-     * 获取侧边栏中每一个列表项所对应的文章区域的位置信息
-     */
-    function getPositionInfos() {
-        var rangeLength = 1000,
-            ranges = [],
-            range,
+    // /**
+    //  * 获取侧边栏中每一个列表项所对应的文章区域的位置信息
+    //  */
+    // function getPositionInfos() {
+    //     var rangeLength = 1000,
+    //         ranges = [],
+    //         range,
 
-            positionInfos = {
-                rangeLength: rangeLength,
-                ranges: ranges
-            };
+    //         positionInfos = {
+    //             rangeLength: rangeLength,
+    //             ranges: ranges
+    //         };
 
-        $('.sidebar-body').find('.item-content').each(function() {
-            var itemContent = $(this);
+    //     $('.sidebar-body').find('.item-content').each(function() {
+    //         var itemContent = $(this);
 
-            // 获取 itemContent 的 id，若不存则，则设置一个
-            var positionId = itemContent.data('position-id');
+    //         // 获取 itemContent 的 id，若不存则，则设置一个
+    //         var positionId = itemContent.data('position-id');
 
-            if ( !positionId ) {
-                positionId = count++;
-                itemContent.data('position-id', positionId);
-            }
+    //         if ( !positionId ) {
+    //             positionId = count++;
+    //             itemContent.data('position-id', positionId);
+    //         }
 
-            // 获取 itemCountent 对应的区域的位置信息
-            var target = $(itemContent.attr('href')),
-                targetTop = target.offset().top;
+    //         // 获取 itemCountent 对应的区域的位置信息
+    //         var target = $(itemContent.attr('href')),
+    //             targetTop = target.offset().top;
 
-            var positionInfo = positionInfos[positionId] = {
-                itemContent: itemContent,
-                target: target,
-                targetTop: targetTop
-            };
+    //         var positionInfo = positionInfos[positionId] = {
+    //             itemContent: itemContent,
+    //             target: target,
+    //             targetTop: targetTop
+    //         };
 
-            // 设置区间信息
-            var rangeId = Math.floor(targetTop / rangeLength),
-                range = ranges[rangeId];
+    //         // 设置区间信息
+    //         var rangeId = Math.floor(targetTop / rangeLength),
+    //             range = ranges[rangeId];
 
-            if (!range) {
-                range = ranges[rangeId] = [];
-            }
+    //         if (!range) {
+    //             range = ranges[rangeId] = [];
+    //         }
 
-            range.push({
-                targetTop: targetTop,
-                positionInfo: positionInfo
-            });
-        });
+    //         range.push({
+    //             targetTop: targetTop,
+    //             positionInfo: positionInfo
+    //         });
+    //     });
 
-        for (var i = 0; i < ranges.length; i++) {
-            if ( (range = ranges[i]) ) {
-                range.sort(function(a, b) {
-                    return a.targetTop - b.targetTop;
-                });
-            }
-        }
+    //     for (var i = 0; i < ranges.length; i++) {
+    //         if ( (range = ranges[i]) ) {
+    //             range.sort(function(a, b) {
+    //                 return a.targetTop - b.targetTop;
+    //             });
+    //         }
+    //     }
 
-        return positionInfos;
-    }
+    //     return positionInfos;
+    // }
 
     /**
      * 切换侧边栏列表项的打开及关闭状态
