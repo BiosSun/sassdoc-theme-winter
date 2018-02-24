@@ -31,10 +31,6 @@
     .item-body {
         position: relative;
         @include clearfix;
-        // margin: -1px 0;
-
-        // border-top: 1px solid $line-color;
-        // border-bottom: 1px solid $line-color;
     }
 
     $item-content-padding-vertical: $distance-vertical * .5;

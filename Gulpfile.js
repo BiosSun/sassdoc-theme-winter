@@ -95,7 +95,6 @@ gulp.task('compile', function () {
             tagline: false,
             sort: {
                 group: [
-                    'undefined',
                     'variables',
                     'scaffolding',
                     'elements',
@@ -115,7 +114,6 @@ gulp.task('compile', function () {
         fragments: {
             document: dirs.readme,
             group: {
-                'undefined': dirs.fragments + '/group-undefined.md',
                 'add-ons': dirs.fragments + '/group-add-ons.md',
                 'helpers': dirs.fragments + '/group-helpers.md',
                 'list': dirs.fragments + '/group-list.md',

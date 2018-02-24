@@ -851,6 +851,10 @@ hr {
   font-family: monospace;
 }
 
+.document .variables .variables-item-name {
+  white-space: nowrap;
+}
+
 .document .item {
   margin: 70px 0;
 }
