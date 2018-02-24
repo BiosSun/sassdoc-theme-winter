@@ -6,12 +6,10 @@
 }
 
 .sidebar-body {
+    position: relative;
     height: 100%;
     border-right: 1px solid $line-color;
     background: #fff;
-
-    overflow: scroll;
-    overflow-x: hidden;
 }
 
 .sidebar-nav-list {
@@ -26,7 +24,7 @@
         position: relative;
         @include clearfix;
         margin: -1px 0;
- 
+
         border-top: 1px solid $line-color;
         border-bottom: 1px solid $line-color;
     }

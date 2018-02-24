@@ -1,5 +1,5 @@
 /**
- * 侧边栏折叠功能
+ * 侧边栏功能
  */
 $(function() {
     var
@@ -27,6 +27,29 @@ $(function() {
     });
 
     refreshSideBarHigh();
+
+    // 初始化滚动条组件，并在窗口尺寸改变时，更新其状态
+    sidebarBody.perfectScrollbar({
+        suppressScrollX: true,
+        suppressScrollY: false
+    });
+
+    $win.on('resize', function() {
+        sidebarBody.perfectScrollbar('update');
+    });
+
+    (function() {
+        var scrollHeight = 0;
+
+        setInterval(function() {
+            var currentScrollHeight = sidebarBody[0].scrollHeight;
+
+            if (currentScrollHeight !== scrollHeight ) {
+                sidebarBody.perfectScrollbar('update');
+                scrollHeight = currentScrollHeight;
+            }
+        }, 100);
+    })();
 
     /**
      * 根据当前的滚动位置刷新侧边栏的高亮状态

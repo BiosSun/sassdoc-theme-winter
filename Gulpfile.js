@@ -41,7 +41,8 @@ var dirs = {
     tpl: 'views',
     src: project('nojiko'),
     package: project('nojiko/package.json'),
-    fragments: project('nojiko/doc-fragments'),
+    fragments: project('nojiko/docs-fragments'),
+    readme: project('nojiko/README.md'),
     docs: project('sassdoc')
 };
 
@@ -96,7 +97,6 @@ gulp.task('compile', function () {
                 group: [
                     'undefined',
                     'variables',
-                    'reset',
                     'scaffolding',
                     'elements',
                     'helpers',
@@ -113,7 +113,7 @@ gulp.task('compile', function () {
             }
         },
         fragments: {
-            document: dirs.fragments + '/document.md',
+            document: dirs.readme,
             group: {
                 'undefined': dirs.fragments + '/group-undefined.md',
                 'add-ons': dirs.fragments + '/group-add-ons.md',
@@ -121,7 +121,6 @@ gulp.task('compile', function () {
                 'list': dirs.fragments + '/group-list.md',
                 'map': dirs.fragments + '/group-map.md',
                 'elements': dirs.fragments + '/group-elements.md',
-                'reset': dirs.fragments + '/group-reset.md',
                 'scaffolding': dirs.fragments + '/group-scaffolding.md',
                 'variables': dirs.fragments + '/group-variables.md'
             }
