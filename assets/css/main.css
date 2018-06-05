@@ -1075,37 +1075,6 @@ hr {
   text-decoration: none;
 }
 
-.sidebar-nav-list .item-toggle {
-  float: right;
-  width: 41px;
-  height: 41px;
-  font-size: 12.3px;
-  line-height: 41px;
-  text-align: center;
-}
-
-.sidebar-nav-list .item-toggle .fa {
-  display: none;
-}
-
-.sidebar-nav-list .item-toggle:hover {
-  background: #fafafa;
-  text-decoration: none;
-}
-
-.sidebar-nav-list .item-toggle:focus {
-  text-decoration: none;
-  outline: 1px dashed #f0f0f0;
-}
-
-.sidebar-nav-list .item.opened .item-toggle .icon-opened {
-  display: inline;
-}
-
-.sidebar-nav-list .item.closed .item-toggle .icon-closed {
-  display: inline;
-}
-
 .sidebar-nav-list .item.high > .item-body > .item-content {
   color: #4797c3;
 }

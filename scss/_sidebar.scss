@@ -52,43 +52,6 @@
         }
     }
 
-    $item-content-height: $item-content-padding-vertical * 2 + compute-line-height($item-content-font-size, $item-content-line-height);
-
-    .item-toggle {
-        $size: $item-content-height;
-
-        float: right;
-        @include size($size);
-
-        font-size: $size * .3;
-        line-height: $size;
-        text-align: center;
-
-        // border-left: 1px solid $line-color;
-
-        .fa {
-            display: none;
-        }
-
-        &:hover {
-            background: #fafafa;
-            text-decoration: none;
-        }
-
-        &:focus {
-            text-decoration: none;
-            outline: 1px dashed $line-color;
-        }
-    }
-
-    .item.opened .item-toggle .icon-opened {
-        display: inline;
-    }
-
-    .item.closed .item-toggle .icon-closed {
-        display: inline;
-    }
-
     .item-type {
         @extend %mini-type-label;
         @extend %mini-type-label-color;

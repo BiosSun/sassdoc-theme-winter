@@ -14,13 +14,6 @@
 
                     <li class="item opened" rule="treeitem">
                         <div class="item-body">
-                            {% if groupKeys.length && (groupKeys.length > 1 || groupKeys[0] != 'variable') %}
-                                <a class="item-toggle" href="javascript:">
-                                    <i class="icon-opened fa fa-chevron-up"></i>
-                                    <i class="icon-closed fa fa-chevron-down"></i>
-                                </a>
-                            {% endif %}
-
                             <a class="item-content" href="#id--{{group_name}}">
                                 <span class="item-title">
                                     {{ groups[group_name] }}
