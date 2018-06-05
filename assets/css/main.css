@@ -733,7 +733,7 @@ hr {
 }
 
 .content-wrapper {
-  max-width: 840px;
+  max-width: 880px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -801,9 +801,7 @@ hr {
 }
 
 .document .variables {
-  width: 130%;
-  margin-left: -15%;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .document .variables th, .document .variables td {
