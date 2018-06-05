@@ -80,8 +80,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    background: #fff;
-    // border-right: 1px solid $line-color;
+    background: #f0f0f0;
+    border-right: 1px solid #ddd;
 
     opacity: 0;
     cursor: col-resize;
@@ -90,7 +90,7 @@
 
     @mixin set-size($size) {
         width: $size;
-        right: -($size);
+        right: -($size + 1);
 
         > .icon {
             @include size($size);
@@ -118,7 +118,7 @@
 
     &:hover, &.on {
         @include set-size(16px);
-        opacity: 0.9;
+        opacity: 1;
     }
 
     &.on {
