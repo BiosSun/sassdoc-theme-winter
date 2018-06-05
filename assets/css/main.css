@@ -956,8 +956,6 @@ hr {
 .document .item-example-paratactic .item-example {
   width: 50%;
   position: relative;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .document .item-example-paratactic .item-example-left {
@@ -979,12 +977,15 @@ hr {
 }
 
 .document .item-example-paratactic .example-code {
-  display: -ms-flexbox;
-  display: flex;
   margin: 0;
+  position: relative;
 }
 
-.document .item-example-paratactic .example-code > code {
+.document .item-example-paratactic .example-code > pre {
+  overflow: visible;
+}
+
+.document .item-example-paratactic .example-code > pre > code {
   background: transparent;
   overflow: visible;
 }

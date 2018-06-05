@@ -282,7 +282,6 @@
         .item-example {
             width: 50%;
             position: relative;
-            display: flex;
         }
 
         .item-example-left {
@@ -302,12 +301,16 @@
         }
 
         .example-code {
-            display: flex;
             margin: 0;
+            position: relative;
 
-            > code {
-                background: transparent;
+            > pre {
                 overflow: visible;
+
+                > code {
+                    background: transparent;
+                    overflow: visible;
+                }
             }
         }
     }

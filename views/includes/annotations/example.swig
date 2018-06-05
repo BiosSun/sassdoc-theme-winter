@@ -9,7 +9,9 @@
                     <div class="example-description">{{ example.description | safe }}</div>
                 {% endif %}
 
-                <pre class="example-code"><code class="lang-{{ example.type }}">{{ example.code | safe }}</code></pre>
+                <div class="example-code">
+                    <pre><code class="lang-{{ example.type }}">{{ example.code | safe }}</code></pre>
+                </div>
             </div>
         {% endfor %}
     </div>
