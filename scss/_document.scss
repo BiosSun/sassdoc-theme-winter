@@ -40,6 +40,10 @@
         font-size: .5em;
         font-weight: 300;
     }
+    
+    pre code {
+        background: $rio-code-bg;
+    }
 
     .tagline {
         color: $text-color-quiet;
@@ -306,6 +310,7 @@
 
             > pre {
                 overflow: visible;
+                margin: 0;
 
                 > code {
                     background: transparent;

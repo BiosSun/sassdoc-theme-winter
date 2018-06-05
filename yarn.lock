@@ -4043,9 +4043,9 @@ rimraf@2, rimraf@2.*, rimraf@^2.2.6, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.6.1
   dependencies:
     glob "^7.0.5"
 
-rio-typesetting@^0.2.5:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/rio-typesetting/-/rio-typesetting-0.2.6.tgz#b6bc67e07d2d4d750230d9685549dd525cbe8230"
+rio-typesetting@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/rio-typesetting/-/rio-typesetting-0.3.1.tgz#49f34eea7dde8e6e50f22657f45f5deefacb5f70"
 
 rx@4.1.0:
   version "4.1.0"

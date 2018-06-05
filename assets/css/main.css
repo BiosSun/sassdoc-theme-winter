@@ -39,7 +39,7 @@
   color: rgba(204, 71, 148, 0.9);
 }
 
-/*! Rio - v0.2.6 - Bios Sun <biossun@gmail.com> - https://github.com/BiosSun/rio
+/*! Rio - v0.3.1 - Bios Sun <biossun@gmail.com> - https://github.com/BiosSun/rio
     ========================================================================== */
 .document small, .document tfoot {
   font-size: 90%;
@@ -95,7 +95,7 @@
 }
 
 .document a:hover {
-  color: black;
+  color: #2a6496;
 }
 
 .document a:focus {
@@ -103,7 +103,7 @@
 }
 
 .document a:active {
-  color: black;
+  color: #2a6496;
 }
 
 .document b, .document strong {
@@ -241,7 +241,7 @@
   background: #fafafa;
 }
 
-.document thead tr, .document tr:hover {
+.document thead tr, .document tbody tr:hover {
   background: #f0f0f0;
 }
 
@@ -253,6 +253,14 @@
 
 .document th:first-child, .document td:first-child {
   padding-left: 1.4em;
+}
+
+.document th > :first-child, .document td > :first-child {
+  margin-top: 0;
+}
+
+.document th > :last-child, .document td > :last-child {
+  margin-bottom: 0;
 }
 
 .document th {
@@ -769,6 +777,10 @@ hr {
   font-weight: 300;
 }
 
+.document pre code {
+  background: #f7f7f7;
+}
+
 .document .tagline {
   color: #aaa;
   margin-bottom: 30px;
@@ -983,6 +995,7 @@ hr {
 
 .document .item-example-paratactic .example-code > pre {
   overflow: visible;
+  margin: 0;
 }
 
 .document .item-example-paratactic .example-code > pre > code {
