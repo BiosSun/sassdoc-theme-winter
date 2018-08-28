@@ -36,6 +36,10 @@ swig.setFilter('isGitHub', function (repositoryInfo) {
     return formatRepositoryInfo(repositoryInfo).type === 'github'
 })
 
+swig.setFilter('getRepositoryLink', function (repositoryInfo) {
+    return formatRepositoryInfo(repositoryInfo).browse()
+})
+
 swig.setFilter('getRepositoryFileLink', function (repositoryInfo, version, path, startLineNum, endLineNum) {
     return formatRepositoryInfo(repositoryInfo).browse(path, { committish: version }) + '#L' + startLineNum + '-L' + endLineNum 
 })

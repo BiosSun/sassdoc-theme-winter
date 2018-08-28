@@ -93,6 +93,7 @@ gulp.task('compile', function () {
             watermark: true,
             require: false,
             tagline: false,
+            repositoryLink: true,
             sort: {
                 group: [
                     'variables',

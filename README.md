@@ -31,6 +31,18 @@
 }
 ```
 
+### 隐藏 GitHub 链接
+
+如果 package.json 中所声明的是 GitHub 的仓库地址，那默认会在页面右上角显示一个跳
+转图标，若不希望显示该图标，可在 display 对象中添加 repositoryLink 属性，并设置其值为
+false 即可：
+
+```
+"display": {
+    "repositoryLink": false
+}
+```
+
 ### 自定义分组及类型排序
 
 可在 display 配置项下添加一个 sort 属性，该属性下可指定两个子属性：group 及 type，分别用于定义分组及类型的排列顺序，示例代码如下：
