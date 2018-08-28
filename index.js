@@ -84,7 +84,8 @@ function tidyCTX(ctx) {
         display: {
             access: ['public'],
             alias: true,
-            watermark: true
+            watermark: true,
+            repositoryLink: true,
         },
         groups: {
             'undefined': 'General'
