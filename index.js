@@ -5,6 +5,7 @@ var fs = require('fs');
 var fse = require('fs-extra');
 var extend = require('extend');
 var marked = require('marked');
+var hostedGitInfo = require("hosted-git-info");
 
 var _ = require('lodash');
 var swig = require('swig');
@@ -30,6 +31,18 @@ swig.setFilter('in', function (key, object) {
 swig.setFilter('nin', function (key, object) {
     return !(key in object);
 });
+
+swig.setFilter('isGitHub', function (repositoryInfo) {
+    return formatRepositoryInfo(repositoryInfo).type === 'github'
+})
+
+swig.setFilter('getRepositoryFileLink', function (repositoryInfo, version, path, startLineNum, endLineNum) {
+    return formatRepositoryInfo(repositoryInfo).browse(path, { committish: version }) + '#L' + startLineNum + '-L' + endLineNum 
+})
+
+function formatRepositoryInfo(repositoryInfo) {
+    return hostedGitInfo.fromUrl(typeof repositoryInfo === 'string' ? repositoryInfo : repositoryInfo.url)
+}
 
 swig.setFilter('getKeysBySort', function(sourceObject, sorts) {
     var sourceKeys = _.keys(sourceObject),
